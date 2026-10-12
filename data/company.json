@@ -1,0 +1,31 @@
+{
+  "brand": "ТЕХ-ЭНЕРГО",
+  "legalName": "ООО «ТЕХ-ЭНЕРГО»",
+  "director": "Черанев Тимур Николаевич",
+  "inn": "5903157354",
+  "ogrn": "1235900013535",
+  "city": "Пермь",
+  "address": "г. Пермь, ул. Хабаровская, 151",
+  "street": "ул. Хабаровская, 151",
+  "geo": {
+    "lat": 58.04804,
+    "lon": 56.0884
+  },
+  "phone": "+7 (908) 277-95-46",
+  "phoneRaw": "+79082779546",
+  "email": "teh-enerdgy@mail.ru",
+  "telegram": "https://t.me/+79082779546",
+  "whatsapp": "https://wa.me/79082779546",
+  "vk": "https://vk.com/teh_enerdgy",
+  "ozonSeller": "https://www.ozon.ru/seller/teh-enerdgy-2374593/",
+  "ozonStats": {
+    "rating": "4,7",
+    "reviews": 108,
+    "orders": 355,
+    "date": "12.10.2026"
+  },
+  "siteUrl": "https://teh-enerdgy.ru",
+  "yearsOnMarket": "более 2 лет",
+  "returnRate": "80%",
+  "creditSlug": "teh-enerdgy"
+}
