@@ -7,18 +7,32 @@
     set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* приватный режим */ } },
   };
 
+  // ---------- слои поверх страницы и кнопка «Назад» ----------
+  // Меню, окно заявки и просмотр фото открываются как «слой»: добавляем запись в историю,
+  // поэтому «Назад» в браузере/телефоне закрывает слой, а не уводит со страницы.
+  const layers = [];
+  const openLayer = close => { layers.push(close); history.pushState({ layer: layers.length }, ''); };
+  const closeLayer = () => { if (layers.length) history.back(); };
+  const dropLayer = close => { const i = layers.indexOf(close); if (i > -1) layers.splice(i, 1); };
+  addEventListener('popstate', () => { const close = layers.pop(); if (close) close(); });
+
   // ---------- шапка и меню ----------
   const hdr = $('#hdr');
   const onScroll = () => hdr && hdr.classList.toggle('is-solid', scrollY > 40);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   const burger = $('#burger'), nav = $('#nav');
   if (burger) {
+    const hideMenu = () => { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); };
     burger.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', open);
-      hdr.classList.add('is-solid');
+      if (nav.classList.contains('is-open')) { closeLayer(); return; }
+      nav.classList.add('is-open'); burger.setAttribute('aria-expanded', 'true'); hdr.classList.add('is-solid');
+      openLayer(hideMenu);
     });
-    $$('a', nav).forEach(a => a.addEventListener('click', () => { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }));
+    // переход по пункту меню: просто прячем меню, история уже меняется самим переходом
+    $$('a', nav).forEach(a => a.addEventListener('click', () => { dropLayer(hideMenu); hideMenu(); }));
+    document.addEventListener('click', e => {
+      if (nav.classList.contains('is-open') && !e.target.closest('#nav, #burger')) closeLayer();
+    });
   }
 
   // ---------- появление блоков ----------
@@ -34,6 +48,7 @@
   // ---------- модалка заявки ----------
   const modal = $('#order');
   let lastFocus = null;
+  function hideOrder() { modal.hidden = true; document.body.style.overflow = ''; lastFocus && lastFocus.focus(); }
   function openOrder(product, sub) {
     if (!modal) return;
     lastFocus = document.activeElement;
@@ -43,18 +58,65 @@
     $('#order-title').textContent = product ? 'Заказ' : 'Заявка';
     $('#order-sub').textContent = sub || (product ? product : 'Перезвоним в рабочее время, уточним детали и сроки.');
     modal.hidden = false; document.body.style.overflow = 'hidden';
+    openLayer(hideOrder);
     setTimeout(() => f.elements.phone.focus(), 60);
   }
-  function closeOrder() { if (!modal || modal.hidden) return; modal.hidden = true; document.body.style.overflow = ''; lastFocus && lastFocus.focus(); }
+
+  // ---------- просмотр фото ----------
+  const lb = $('#lb'), lbImg = lb && $('.lb__img', lb), lbCount = lb && $('.lb__count', lb);
+  let lbItems = [], lbI = 0, lbFocus = null;
+  function lbShow(i) {
+    lbI = (i + lbItems.length) % lbItems.length;
+    lbImg.src = lbItems[lbI].href;
+    lbImg.alt = lbItems[lbI].getAttribute('aria-label') || '';
+    lbCount.textContent = `${lbI + 1} / ${lbItems.length}`;
+  }
+  function hideLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; lbFocus && lbFocus.focus(); }
+  function openLb(group, start) {
+    lbItems = $$(`[data-lb="${group}"]`);
+    if (!lb || !lbItems.length) return;
+    lbFocus = document.activeElement;
+    lb.classList.toggle('is-single', lbItems.length < 2);
+    lbShow(start || 0);
+    lb.hidden = false; document.body.style.overflow = 'hidden';
+    openLayer(hideLb);
+    $('.lb__x', lb).focus();
+  }
+  if (lb) {
+    $('.lb__prev', lb).addEventListener('click', () => lbShow(lbI - 1));
+    $('.lb__next', lb).addEventListener('click', () => lbShow(lbI + 1));
+    // клик по пустому месту вокруг фото закрывает просмотр
+    lb.addEventListener('click', e => { if (e.target === lb) closeLayer(); });
+    let tx = 0, ty = 0;
+    lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) lbShow(lbI + (dx < 0 ? 1 : -1));
+      else if (dy > 80) closeLayer();
+    });
+  }
+
   document.addEventListener('click', e => {
     const t = e.target.closest('[data-order]');
-    if (t) { e.preventDefault(); openOrder(t.dataset.product); }
-    if (e.target.closest('[data-close]')) closeOrder();
+    if (t) { e.preventDefault(); openOrder(t.dataset.product); return; }
+    if (e.target.closest('[data-close], [data-lb-close]')) { closeLayer(); return; }
+    const link = e.target.closest('a[data-lb]');
+    if (link) { e.preventDefault(); const g = $$(`[data-lb="${link.dataset.lb}"]`); openLb(link.dataset.lb, g.indexOf(link)); return; }
+    const opener = e.target.closest('[data-lb-open]');
+    if (opener) {
+      const g = $$(`[data-lb="${opener.dataset.lbOpen}"]`), shown = $('img', opener);
+      const i = opener.dataset.lbStart != null ? +opener.dataset.lbStart : Math.max(0, g.findIndex(x => shown && x.href === shown.src));
+      openLb(opener.dataset.lbOpen, i);
+    }
   });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeOrder();
-    if (e.key === 'Tab' && modal && !modal.hidden) { // удерживаем фокус внутри окна
-      const f = $$('button, a[href], input:not([type=hidden]):not([tabindex="-1"]), textarea, select', modal).filter(x => x.offsetParent);
+    const open = lb && !lb.hidden ? lb : modal && !modal.hidden ? modal : null;
+    if (e.key === 'Escape' && layers.length) closeLayer();
+    if (lb && !lb.hidden && e.key === 'ArrowLeft') lbShow(lbI - 1);
+    if (lb && !lb.hidden && e.key === 'ArrowRight') lbShow(lbI + 1);
+    if (e.key === 'Tab' && open) { // удерживаем фокус внутри открытого окна
+      const f = $$('button, a[href], input:not([type=hidden]):not([tabindex="-1"]), textarea, select', open).filter(x => x.offsetParent);
+      if (!f.length) return;
       if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
       else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
     }

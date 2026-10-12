@@ -94,6 +94,13 @@ ${body}
 </main>
 ${footer()}
 ${orderModal()}
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото" hidden>
+  <button class="lb__btn lb__x" type="button" data-lb-close aria-label="Закрыть">${I.close}</button>
+  <button class="lb__btn lb__prev" type="button" aria-label="Предыдущее фото"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <img class="lb__img" alt="">
+  <button class="lb__btn lb__next" type="button" aria-label="Следующее фото"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <span class="lb__count" aria-live="polite"></span>
+</div>
 <div class="cookie" id="cookie" hidden>
   <p>Сайт использует файлы cookie, чтобы корректно работать и показывать встроенную карту. Подробнее — в <a href="/politika/">политике конфиденциальности</a>.</p>
   <button class="btn btn--sm" type="button" id="cookie-ok">Понятно</button>
@@ -109,7 +116,6 @@ function header() {
     <a class="logo" href="/" aria-label="${C.brand} — на главную">${LOGO_MARK}<span class="logo__txt"><b>${C.brand}</b><small>клейма · прессы</small></span></a>
     <nav class="nav" id="nav" aria-label="Основное меню">
       ${NAV.map(([h, t]) => `<a href="${h}">${t}</a>`).join('')}
-      <a class="nav__ozon" href="${C.ozonSeller}" target="_blank" rel="noopener">${I.ozon}Ozon</a>
     </nav>
     <div class="hdr__act">
       <a class="hdr__phone" href="tel:${C.phoneRaw}">${C.phone}</a>
@@ -128,7 +134,7 @@ function footer() {
     <div class="ftr__brand">
       <a class="logo logo--light" href="/">${LOGO_MARK}<span class="logo__txt"><b>${C.brand}</b><small>клейма · прессы</small></span></a>
       <p>Ударные клейма, гидравлические прессы и лазерная маркировка. Производство в Перми, отправка по всей России.</p>
-      <a class="ozon-badge" href="${C.ozonSeller}" target="_blank" rel="noopener">${I.star}<b>${C.ozonStats.rating}</b> на Ozon · ${C.ozonStats.reviews} отзывов</a>
+      <span class="ozon-badge">${I.star}<b>${C.ozonStats.rating}</b> · ${C.ozonStats.reviews} отзывов покупателей</span>
     </div>
     <div>
       <h3>Разделы</h3>
@@ -208,7 +214,7 @@ function card(p, { eager = false } = {}) {
     <div class="card__meta">${p.rating ? `<span class="rating">${I.star}${p.rating}<small>${esc(p.reviews || '')}</small></span>` : '<span class="rating rating--none">Новинка</span>'}</div>
     <div class="card__foot">
       <div class="price"><b>${rub(p.price)}</b>${p.oldPrice ? `<s>${rub(p.oldPrice)}</s>` : ''}</div>
-      <a class="btn btn--sm btn--ozon" href="${p.ozon}" target="_blank" rel="noopener" aria-label="Купить «${esc(p.short)}» на Ozon">Ozon</a>
+      <button class="btn btn--sm" type="button" data-order data-product="${esc(p.title)} (арт. ${p.sku})" aria-label="Заказать «${esc(p.short)}»">Заказать</button>
     </div>
   </div>
 </article>`;
@@ -226,7 +232,7 @@ function home() {
     <div class="hero__txt reveal">
       <p class="eyebrow"><span class="dot"></span>Собственное производство · ${C.city}</p>
       <h1>Ударные клейма <span class="hl">и&nbsp;гидравлические прессы</span></h1>
-      <p class="lead">Маркировка металла под ключ: ${plural(STAMPS.length, ['готовое клеймо', 'готовых клейма', 'готовых клейм'])} — ОТК, EAC, марки стали, знаки — в наличии на Ozon. Изготовим клеймо по вашему эскизу от 1 дня и соберём пресс под вашу задачу.</p>
+      <p class="lead">Маркировка металла под ключ: ${plural(STAMPS.length, ['готовое клеймо', 'готовых клейма', 'готовых клейм'])} — ОТК, EAC, марки стали, знаки — в наличии на складе. Изготовим клеймо по вашему эскизу от 1 дня и соберём пресс под вашу задачу.</p>
       <div class="hero__cta">
         <a class="btn btn--lg" href="/catalog/">Каталог клейм ${I.arrow}</a>
         <a class="btn btn--lg btn--ghost" href="/pressy/">Прессы с ЧПУ</a>
@@ -234,8 +240,8 @@ function home() {
       <ul class="hero__facts">
         <li><b>от 1 дня</b><span>изготовление клейма</span></li>
         <li><b>от 1 мм</b><span>высота шрифта</span></li>
-        <li><b>${C.ozonStats.rating}<i>★</i></b><span>${C.ozonStats.reviews} отзывов на Ozon</span></li>
-        <li><b>${C.ozonStats.orders}</b><span>заказов на Ozon</span></li>
+        <li><b>${C.ozonStats.rating}<i>★</i></b><span>${C.ozonStats.reviews} отзывов покупателей</span></li>
+        <li><b>${C.ozonStats.orders}</b><span>заказов от покупателей</span></li>
       </ul>
     </div>
     <div class="hero__vis reveal" aria-hidden="true">
@@ -254,7 +260,7 @@ function home() {
         <div class="dir__txt">
           <span class="dir__num">01</span>
           <h3>Ударные клейма</h3>
-          <p>Клейма ОТК, знаки соответствия, марки стали, символы. Сталь 9ХС и У8А с закалкой рабочей части. Готовые — на складе и на Ozon, индивидуальные — по эскизу.</p>
+          <p>Клейма ОТК, знаки соответствия, марки стали, символы. Сталь 9ХС и У8А с закалкой рабочей части. Готовые — на складе, индивидуальные — по эскизу.</p>
           <span class="dir__more">${POS(STAMPS.length)} · от ${rub(minPrice)} ${I.arrow}</span>
         </div>
         <div class="dir__imgs">${STAMPS.slice(3, 6).map(p => `<img src="${img(p, 1, true)}" alt="" width="300" height="400" loading="lazy">`).join('')}</div>
@@ -275,7 +281,7 @@ function home() {
 <section class="sec sec--tint" id="catalog">
   <div class="wrap">
     <div class="sec__head sec__head--row reveal">
-      <div><p class="eyebrow">Каталог</p><h2>Клейма в наличии</h2><p class="sec__sub">Цены и наличие — как на Ozon (обновлено ${UPDATED_RU}). Купить можно на Ozon или напрямую у нас.</p></div>
+      <div><p class="eyebrow">Каталог</p><h2>Клейма в наличии</h2><p class="sec__sub">Цены актуальны на ${UPDATED_RU}. Оставьте заказ на сайте — перезвоним, подтвердим наличие и сроки доставки.</p></div>
       <a class="btn btn--ghost-dark" href="/catalog/">Весь каталог · ${STAMPS.length} ${I.arrow}</a>
     </div>
     <div class="cats reveal">
@@ -392,12 +398,12 @@ function home() {
     <div class="reviews__score">
       <span class="reviews__num">${C.ozonStats.rating}</span>
       <span class="reviews__stars">${I.star.repeat(5)}</span>
-      <p>Рейтинг магазина на Ozon<br>${C.ozonStats.reviews} отзывов · ${C.ozonStats.orders} заказов</p>
+      <p>Средняя оценка покупателей<br>${C.ozonStats.reviews} отзывов · ${C.ozonStats.orders} заказов</p>
     </div>
     <div class="reviews__txt">
-      <h2>Отзывы покупателей — на Ozon</h2>
-      <p>Мы не переписываем отзывы на сайт: все оценки оставлены покупателями на маркетплейсе и проверяются Ozon. Почитайте, что пишут о наших клеймах.</p>
-      <a class="btn" href="${C.ozonSeller}" target="_blank" rel="noopener">Читать отзывы на Ozon ${I.arrow}</a>
+      <h2>Нам доверяют покупатели</h2>
+      <p>Оценки оставлены реальными покупателями наших клейм на маркетплейсе — мы их не переписываем и не редактируем. ${C.returnRate} клиентов возвращаются за новыми заказами.</p>
+      <a class="link-quiet" href="${C.ozonSeller}" target="_blank" rel="noopener">Посмотреть отзывы на Ozon</a>
     </div>
   </div>
 </section>
@@ -409,7 +415,7 @@ function home() {
       <div class="pay__item reveal"><h3>Оплата</h3><p>Банковской картой, переводом на расчётный счёт или наличными при самовывозе. После подтверждения оплаты приступаем к работе.</p></div>
       <div class="pay__item reveal"><h3>Доставка</h3><p>Отправляем СДЭК и Почтой России. Стоимость доставки оплачивает покупатель, сроки зависят от способа и адреса.</p></div>
       <div class="pay__item reveal"><h3>Самовывоз</h3><p>${C.address}. Заранее предупредите о визите по телефону.</p></div>
-      <div class="pay__item reveal"><h3>Через Ozon</h3><p>Готовые клейма можно купить на Ozon: оплата и доставка до пункта выдачи по правилам маркетплейса.</p></div>
+      <div class="pay__item reveal"><h3>Для юрлиц</h3><p>Работаем по договору: выставляем счёт, предоставляем чек и гарантию. Подходит для закупки на предприятие.</p></div>
     </div>
   </div>
 </section>
@@ -456,7 +462,7 @@ const FAQ = [
   ['Из какой стали делаете клейма?', 'Используем инструментальные стали 9ХС и У8А с закалкой рабочей части. Твёрдость рабочей части — 50–58 HRC.'],
   ['Какой минимальный размер шрифта?', 'Делаем клейма со шрифтом от 1 мм — подходит для мелкой и сверхтонкой маркировки.'],
   ['Как оплатить заказ?', 'Банковской картой, переводом на расчётный счёт или наличными при самовывозе. Работаем с физическими и юридическими лицами: договор, чек, гарантия.'],
-  ['Как доставляете?', 'СДЭК и Почтой России, стоимость доставки оплачивает покупатель. Готовые клейма также продаются на маркетплейсах — Ozon, Wildberries и Яндекс Маркете — с доставкой до пункта выдачи.'],
+  ['Как доставляете?', 'СДЭК и Почтой России, стоимость доставки оплачивает покупатель.'],
   ['Можно ли изготовить пресс под нашу задачу?', `Да. Базовая модель — ${PRESS.model} (${PRESS.force}, ЧПУ). Программу ЧПУ можно скорректировать под ваши алгоритмы, а при снятии боковых панелей пресс встраивается в линию. Опишите задачу в заявке — предложим решение.`],
 ];
 
@@ -467,7 +473,7 @@ function catalogPage() {
   <div class="wrap">
     <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Каталог клейм</span></nav>
     <h1>Ударные клейма по металлу</h1>
-    <p class="lead lead--dark">${POS(STAMPS.length)} в наличии. Цены — как на Ozon (обновлено ${UPDATED_RU}). Нужно своё клеймо? <a href="/#constructor">Соберите его в конструкторе</a>.</p>
+    <p class="lead lead--dark">${POS(STAMPS.length)} в наличии, цены актуальны на ${UPDATED_RU}. Нужно своё клеймо? <a href="/#constructor">Соберите его в конструкторе</a>.</p>
   </div>
 </section>
 <section class="sec sec--catalog">
@@ -479,7 +485,7 @@ function catalogPage() {
       </div>
       <div class="filters__right">
         <label class="search">${I.search}<input type="search" id="q" placeholder="Поиск: ОТК, 12Х18Н10Т, якорь…" aria-label="Поиск по каталогу"></label>
-        <select id="sort" aria-label="Сортировка"><option value="order">Как на Ozon</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select>
+        <select id="sort" aria-label="Сортировка"><option value="order">По популярности</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select>
       </div>
     </div>
     <p class="cat-desc" id="cat-desc"></p>
@@ -494,7 +500,7 @@ function catalogPage() {
 <script>window.CATS=${JSON.stringify(Object.fromEntries(CATS.map(c => [c.id, c.desc])))}</script>`;
   return layout({
     title: `Каталог ударных клейм по металлу — ОТК, EAC, марки стали | ${C.brand}`,
-    description: `Каталог ударных клейм: ОТК, EAC, РСТ, марки стали (12Х18Н10Т, AISI 316, 09Г2С), символы и знаки. ${POS(STAMPS.length)} в наличии от ${rub(minPrice)}. Купить на Ozon или напрямую.`,
+    description: `Каталог ударных клейм: ОТК, EAC, РСТ, марки стали (12Х18Н10Т, AISI 316, 09Г2С), символы и знаки. ${POS(STAMPS.length)} в наличии от ${rub(minPrice)}. Заказ напрямую у производителя.`,
     canonical: '/catalog/', body, bodyClass: 'catalog',
     jsonld: [crumbsLd([['Главная', '/'], ['Каталог клейм', '/catalog/']]), {
       '@context': 'https://schema.org', '@type': 'ItemList', name: 'Каталог ударных клейм',
@@ -520,7 +526,7 @@ function productPage(p) {
     p.specs.font && ['Высота символов', p.specs.font],
     p.specs.base && ['Диаметр заготовки', p.specs.base],
     ['Способ нанесения', 'Ударный — молотком или под прессом'],
-    ['Артикул Ozon', p.sku],
+    ['Артикул', p.sku],
   ].filter(Boolean);
   const body = `
 <section class="sec sec--product">
@@ -528,18 +534,19 @@ function productPage(p) {
     <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><a href="/catalog/">Каталог</a><span>/</span><a href="/catalog/#${p.category}">${catName(p.category)}</a><span>/</span><span>${esc(p.short)}</span></nav>
     <div class="prod">
       <div class="gallery" data-gallery>
-        <div class="gallery__main"><img src="${img(p, 1)}" alt="${esc(p.title)}" width="750" height="1000" fetchpriority="high"></div>
+        <button type="button" class="gallery__main zoom" data-lb-open="prod" aria-label="Увеличить фото"><img src="${img(p, 1)}" alt="${esc(p.title)}" width="750" height="1000" fetchpriority="high"></button>
+        <div hidden>${p.images.map(n => `<a href="${img(p, n)}" data-lb="prod" aria-label="Фото ${n}"></a>`).join('')}</div>
         ${p.images.length > 1 ? `<div class="gallery__thumbs">${p.images.map((n, i) => `<button type="button" class="${i ? '' : 'is-on'}" data-src="${img(p, n)}" aria-label="Фото ${n}"><img src="${img(p, n, true)}" alt="" width="75" height="100" loading="lazy"></button>`).join('')}</div>` : ''}
       </div>
       <div class="prod__info">
         <span class="card__cat">${catName(p.category)}</span>
         <h1>${esc(p.title)}</h1>
-        ${p.rating ? `<a class="rating rating--lg" href="${p.ozon}" target="_blank" rel="noopener">${I.star}${p.rating}<small>${esc(p.reviews || '')} на Ozon</small></a>` : ''}
+        ${p.rating ? `<span class="rating rating--lg">${I.star}${p.rating}<small>${esc(p.reviews || '')} покупателей</small></span>` : ''}
         <div class="prod__buy">
-          <div class="price price--lg"><b>${rub(p.price)}</b>${p.oldPrice ? `<s>${rub(p.oldPrice)}</s>` : ''}<small>цена на Ozon на ${UPDATED_RU}</small></div>
+          <div class="price price--lg"><b>${rub(p.price)}</b>${p.oldPrice ? `<s>${rub(p.oldPrice)}</s>` : ''}<small>цена на ${UPDATED_RU}</small></div>
           <div class="prod__btns">
-            <a class="btn btn--lg btn--ozon" href="${p.ozon}" target="_blank" rel="noopener">${I.ozon}Купить на Ozon</a>
-            <button class="btn btn--lg btn--ghost-dark" type="button" data-order data-product="${esc(p.title)} (арт. ${p.sku})">Заказать напрямую</button>
+            <button class="btn btn--lg" type="button" data-order data-product="${esc(p.title)} (арт. ${p.sku})">Заказать ${I.arrow}</button>
+            <a class="btn btn--lg btn--ghost-dark" href="${C.max}" target="_blank" rel="noopener">${I.max}Спросить в MAX</a>
           </div>
           <p class="prod__hint">Для юрлиц — по счёту с договором. Нужен другой текст или размер? <a href="/#constructor">Соберите своё клеймо</a>.</p>
         </div>
@@ -547,7 +554,7 @@ function productPage(p) {
         <div class="prod__txt">
           <h2>Описание</h2>
           <p>${CAT_TEXT[p.category] || ''}</p>
-          <p>Клеймо изготовлено из инструментальной стали с закалкой рабочей части, поэтому даёт чёткий оттиск на стали, цветных металлах, пластике и коже и не сминается при многократных ударах. Подробные характеристики и фото — в карточке товара на Ozon.</p>
+          <p>Клеймо изготовлено из инструментальной стали с закалкой рабочей части, поэтому даёт чёткий оттиск на стали, цветных металлах, пластике и коже и не сминается при многократных ударах.</p>
         </div>
       </div>
     </div>
@@ -556,7 +563,7 @@ function productPage(p) {
 </section>`;
   return layout({
     title: `${p.title} — купить за ${rub(p.price)} | ${C.brand}`,
-    description: `${p.title}. Цена ${rub(p.price)}, в наличии. ${CAT_TEXT[p.category] ? CAT_TEXT[p.category].split('.')[0] + '.' : ''} Купить на Ozon или заказать напрямую с доставкой по России.`,
+    description: `${p.title}. Цена ${rub(p.price)}, в наличии. ${CAT_TEXT[p.category] ? CAT_TEXT[p.category].split('.')[0] + '.' : ''} Заказ напрямую у производителя с доставкой по России.`,
     canonical: `/catalog/${p.slug}/`, body, ogImage: img(p, 1), bodyClass: 'product',
     jsonld: [crumbsLd([['Главная', '/'], ['Каталог', '/catalog/'], [catName(p.category), `/catalog/#${p.category}`], [p.short, `/catalog/${p.slug}/`]]), {
       '@context': 'https://schema.org', '@type': 'Product', name: p.title, sku: String(p.sku),
@@ -580,10 +587,10 @@ function pressPage() {
       <ul class="press-kpi">${PRESS.kpi.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ul>
       <div class="hero__cta">
         <button class="btn btn--lg" type="button" data-order data-product="Пресс ${PRESS.model}">Запросить КП ${I.arrow}</button>
-        ${P ? `<a class="btn btn--lg btn--ghost" href="${P.ozon}" target="_blank" rel="noopener">${I.ozon}Пресс на Ozon — ${rub(P.price)}</a>` : ''}
+        <a class="btn btn--lg btn--ghost" href="tel:${C.phoneRaw}">${I.phone}${C.phone}</a>
       </div>
     </div>
-    <div class="press-hero__img reveal"><img src="${img(P, 1)}" alt="Пресс ${PRESS.model}" width="750" height="1000" fetchpriority="high"></div>
+    <button type="button" class="press-hero__img zoom reveal" data-lb-open="press" data-lb-start="0" aria-label="Увеличить фото пресса"><img src="${img(P, 1)}" alt="Пресс ${PRESS.model}" width="750" height="1000" fetchpriority="high"></button>
   </div>
 </section>
 
@@ -606,7 +613,7 @@ function pressPage() {
       <ul class="ticks">${PRESS.options.map(m => `<li>${I.check}${m}</li>`).join('')}</ul>
       <p class="note">${PRESS.custom}</p>
     </div>
-    <div class="press-ctrl__img reveal"><img src="${img(P, 4)}" alt="Панель ЧПУ пресса" width="750" height="1000" loading="lazy"></div>
+    <button type="button" class="press-ctrl__img zoom reveal" data-lb-open="press" data-lb-start="3" aria-label="Увеличить фото панели ЧПУ"><img src="${img(P, 4)}" alt="Панель ЧПУ пресса" width="750" height="1000" loading="lazy"></button>
   </div>
 </section>
 
@@ -614,7 +621,7 @@ function pressPage() {
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Характеристики</p><h2>Технические данные ${PRESS.model}</h2></div>
     <dl class="specs specs--big reveal">${PRESS.specs.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
-    <div class="press-gal reveal">${P.images.map(n => `<a href="${img(P, n)}" target="_blank" rel="noopener"><img src="${img(P, n, true)}" alt="Пресс ${PRESS.model}, фото ${n}" width="300" height="400" loading="lazy"></a>`).join('')}</div>
+    <div class="press-gal reveal">${P.images.map(n => `<a href="${img(P, n)}" data-lb="press" aria-label="Увеличить фото ${n}"><img src="${img(P, n, true)}" alt="Пресс ${PRESS.model}, фото ${n}" width="300" height="400" loading="lazy"></a>`).join('')}</div>
   </div>
 </section>
 
