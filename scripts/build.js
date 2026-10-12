@@ -9,6 +9,7 @@ const DIST = path.join(ROOT, BASE ? '.demo' : 'dist');
 const C = require('../data/company.json');
 const { categories: CATS, products: ALL, updated } = require('../data/products.json');
 const PRESS = require('../data/press.json');
+const LASER = require('../data/laser.json');
 
 const PRODUCTS = ALL.filter(p => p.images.length);
 const STAMPS = PRODUCTS.filter(p => p.category !== 'equipment' || /набор/i.test(p.title));
@@ -55,6 +56,7 @@ const LOGO_MARK = `<svg class="logo-mark" viewBox="128 180 323 290" aria-hidden=
 const NAV = [
   ['/catalog/', 'Клейма'],
   ['/pressy/', 'Прессы'],
+  ['/gravirovka/', 'Гравировка'],
   ['/#constructor', 'Конструктор'],
   ['/#delivery', 'Доставка'],
   ['/#contacts', 'Контакты'],
@@ -142,7 +144,7 @@ function footer() {
     </div>
     <div>
       <h3>Каталог</h3>
-      <ul>${CATS.filter(c => c.id !== 'equipment').map(c => `<li><a href="/catalog/#${c.id}">${c.name}</a></li>`).join('')}<li><a href="/pressy/">Гидравлические прессы</a></li></ul>
+      <ul>${CATS.filter(c => c.id !== 'equipment').map(c => `<li><a href="/catalog/#${c.id}">${c.name}</a></li>`).join('')}<li><a href="/pressy/">Гидравлические прессы</a></li><li><a href="/gravirovka/">Лазерная гравировка</a></li></ul>
     </div>
     <div>
       <h3>Контакты</h3>
@@ -376,18 +378,15 @@ function home() {
 <section class="sec sec--tint" id="laser">
   <div class="wrap laser">
     <div class="laser__txt reveal">
-      <p class="eyebrow">Также делаем</p>
-      <h2>Шильдики, таблички, бирки и клише</h2>
-      <p>Работаем на современном оптоволоконном лазере — гравировка получается чёткой, ровной и долговечной даже на твёрдых материалах.</p>
-      <ul class="ticks">
-        <li>${I.check}<span><b>Шильдики и таблички</b> с маркировкой — от 1 000 ₽</span></li>
-        <li>${I.check}<span><b>Бирки</b> — от 2 000 ₽</span></li>
-        <li>${I.check}<span><b>Клише для тиснения кожи</b> и кожзама — от 2 000 ₽</span></li>
-        <li>${I.check}<span><b>Матрицы для маркировки</b> — например, для маркировки крышек</span></li>
-        <li>${I.check}<span><b>Гравировка по фото</b>, логотипы и номера на деталях, сувенирах, брелоках</span></li>
-      </ul>
-      <p class="laser__note">Цены ориентировочные — точную стоимость назовём по макету.</p>
-      <button class="btn btn--ghost-dark" type="button" data-order data-product="Шильдики / таблички / клише">Рассчитать по макету</button>
+      <p class="eyebrow">Дополнительная услуга</p>
+      <h2>Лазерная гравировка и маркировка</h2>
+      <p>${LASER.lead}</p>
+      <ul class="ticks">${LASER.services.slice(0, 5).map(([t, , p]) => `<li>${I.check}<span><b>${t}</b>${p ? ` — ${p}` : ''}</span></li>`).join('')}</ul>
+      <p class="laser__note">${LASER.note}</p>
+      <div class="hero__cta">
+        <a class="btn" href="/gravirovka/">Подробнее о гравировке ${I.arrow}</a>
+        <button class="btn btn--ghost-dark" type="button" data-order data-product="Лазерная гравировка">Рассчитать по макету</button>
+      </div>
     </div>
     <div class="laser__img reveal"><img src="/img/site/eac-plates.jpg" alt="Таблички с лазерной маркировкой EAC" width="546" height="410" loading="lazy"></div>
   </div>
@@ -463,6 +462,7 @@ const FAQ = [
   ['Какой минимальный размер шрифта?', 'Делаем клейма со шрифтом от 1 мм — подходит для мелкой и сверхтонкой маркировки.'],
   ['Как оплатить заказ?', 'Банковской картой, переводом на расчётный счёт или наличными при самовывозе. Работаем с физическими и юридическими лицами: договор, чек, гарантия.'],
   ['Как доставляете?', 'СДЭК и Почтой России, стоимость доставки оплачивает покупатель.'],
+  ['Делаете лазерную гравировку?', 'Да, это наша дополнительная услуга: шильдики, таблички, бирки, клише для тиснения, логотипы и номера на деталях, гравировка по фото. Работаем на оптоволоконном лазере по металлу, пластику и коже. Пришлите макет — назовём цену и срок.'],
   ['Можно ли изготовить пресс под нашу задачу?', `Да. Базовая модель — ${PRESS.model} (${PRESS.force}, ЧПУ). Программу ЧПУ можно скорректировать под ваши алгоритмы, а при снятии боковых панелей пресс встраивается в линию. Опишите задачу в заявке — предложим решение.`],
 ];
 
@@ -650,6 +650,86 @@ function pressPage() {
   });
 }
 
+// ---------- лазерная гравировка (дополнительная услуга) ----------
+function laserPage() {
+  const examples = STAMPS.filter(p => p.rating).slice(0, 4);
+  const body = `
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Лазерная гравировка</span></nav>
+    <p class="eyebrow eyebrow--light">Дополнительная услуга</p>
+    <h1>Лазерная гравировка и маркировка</h1>
+    <p class="lead">${LASER.lead}</p>
+    <ul class="press-kpi press-kpi--3">${LASER.facts.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ul>
+    <div class="hero__cta">
+      <button class="btn btn--lg" type="button" data-order data-product="Лазерная гравировка">Рассчитать по макету ${I.arrow}</button>
+      <a class="btn btn--lg btn--ghost" href="${C.max}" target="_blank" rel="noopener">${I.max}Отправить эскиз в MAX</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head reveal"><p class="eyebrow">Что гравируем</p><h2>Маркировка под вашу задачу</h2><p class="sec__sub">${LASER.note}</p></div>
+    <div class="uses uses--3">${LASER.services.map(([t, d, p], i) => `<div class="use reveal"><b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}</div>`).join('')}</div>
+  </div>
+</section>
+
+<section class="sec sec--tint">
+  <div class="wrap laser">
+    <div class="laser__txt reveal">
+      <p class="eyebrow">Как работаем</p>
+      <h2>От макета до готового изделия</h2>
+      <ol class="ctrl-list">
+        <li><h3>Макет</h3><p>Пришлите эскиз, логотип, фото или текст — подготовим и согласуем макет.</p></li>
+        <li><h3>Расчёт</h3><p>Назовём цену и срок с учётом материала, размера и тиража.</p></li>
+        <li><h3>Гравировка</h3><p>Наносим на оптоволоконном лазере — от 1 дня.</p></li>
+        <li><h3>Получение</h3><p>СДЭК, Почта России или самовывоз в Перми.</p></li>
+      </ol>
+    </div>
+    <div class="laser__img reveal"><img src="/img/site/eac-plates.jpg" alt="Таблички с лазерной маркировкой EAC" width="546" height="410" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head sec__head--row reveal">
+      <div><p class="eyebrow">Основное производство</p><h2>Ударные клейма — на том же лазере</h2><p class="sec__sub">Клейма ОТК, знаки соответствия, марки стали и символы — в наличии и по эскизу.</p></div>
+      <a class="btn btn--ghost-dark" href="/catalog/">Каталог клейм ${I.arrow}</a>
+    </div>
+    <div class="grid">${examples.map(p => card(p)).join('')}</div>
+  </div>
+</section>
+
+<section class="sec sec--dark">
+  <div class="wrap contacts">
+    <div class="contacts__info reveal">
+      <p class="eyebrow eyebrow--light">Заявка на гравировку</p>
+      <h2>Пришлите макет — рассчитаем стоимость</h2>
+      <p class="lead">Подойдёт эскиз, фото, логотип в любом формате или просто описание задачи.</p>
+      <ul class="contacts__list">
+        <li><a href="tel:${C.phoneRaw}">${I.phone}${C.phone}</a></li>
+        <li><a href="mailto:${C.email}">${I.mail}${C.email}</a></li>
+      </ul>
+      <div class="contacts__msg">
+        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}MAX</a>
+        <a class="btn btn--tg" href="${C.telegram}" target="_blank" rel="noopener">${I.tg}Telegram</a>
+      </div>
+    </div>
+    <div class="contacts__form reveal">${leadForm({ id: 'laser', title: 'Расчёт гравировки' })}</div>
+  </div>
+</section>`;
+  return layout({
+    title: `Лазерная гравировка в Перми — шильдики, таблички, клише | ${C.brand}`,
+    description: 'Лазерная гравировка и маркировка на оптоволоконном лазере: шильдики и таблички от 1 000 ₽, бирки, клише для тиснения кожи, логотипы и номера на деталях. Металл, пластик, кожа. От 1 дня, доставка по России.',
+    canonical: '/gravirovka/', body, bodyClass: 'laser-page',
+    jsonld: [crumbsLd([['Главная', '/'], ['Лазерная гравировка', '/gravirovka/']]), {
+      '@context': 'https://schema.org', '@type': 'Service', name: 'Лазерная гравировка и маркировка', serviceType: 'Лазерная гравировка', areaServed: 'RU',
+      provider: { '@type': 'LocalBusiness', name: C.brand, telephone: C.phoneRaw, address: { '@type': 'PostalAddress', streetAddress: C.street, addressLocality: C.city, addressCountry: 'RU' } },
+    }],
+  });
+}
+
 // ---------- юридические страницы ----------
 function legalPage(slug, title, html) {
   return layout({
@@ -726,11 +806,12 @@ write('index.html', home());
 write('catalog/index.html', catalogPage());
 STAMPS.forEach(p => write(`catalog/${p.slug}/index.html`, productPage(p)));
 write('pressy/index.html', pressPage());
+write('gravirovka/index.html', laserPage());
 for (const [slug, [t, h]] of Object.entries(LEGAL)) write(`${slug}/index.html`, legalPage(slug, t, h));
 write('404.html', layout({ title: `Страница не найдена | ${C.brand}`, description: 'Страница не найдена', canonical: '/404.html', bodyClass: 'legal',
   body: `<section class="sec"><div class="wrap legal-txt"><h1>Страница не найдена</h1><p>Возможно, клеймо переехало. Загляните в <a href="/catalog/">каталог</a> или на <a href="/">главную</a>.</p></div></section>` }));
 
-const urls = ['/', '/catalog/', '/pressy/', ...STAMPS.map(p => `/catalog/${p.slug}/`), '/politika/', '/soglasie/'];
+const urls = ['/', '/catalog/', '/pressy/', '/gravirovka/', ...STAMPS.map(p => `/catalog/${p.slug}/`), '/politika/', '/soglasie/'];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${C.siteUrl}${u}</loc><lastmod>${updated}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', BASE ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nDisallow: /send.php\nSitemap: ${C.siteUrl}/sitemap.xml\n`);
 if (BASE) { // на Pages PHP и .htaccess не работают
