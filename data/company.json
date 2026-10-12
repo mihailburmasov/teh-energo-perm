@@ -1,4 +1,5 @@
 {
+  "_todo": "max — временно главная max.ru: заменить на ссылку профиля/канала клиента в MAX, когда пришлёт",
   "brand": "ТЕХ-ЭНЕРГО",
   "legalName": "ООО «ТЕХ-ЭНЕРГО»",
   "director": "Черанев Тимур Николаевич",
@@ -14,8 +15,8 @@
   "phone": "+7 (908) 277-95-46",
   "phoneRaw": "+79082779546",
   "email": "teh-enerdgy@mail.ru",
+  "max": "https://max.ru/",
   "telegram": "https://t.me/+79082779546",
-  "whatsapp": "https://wa.me/79082779546",
   "vk": "https://vk.com/teh_enerdgy",
   "ozonSeller": "https://www.ozon.ru/seller/teh-enerdgy-2374593/",
   "ozonStats": {

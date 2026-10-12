@@ -190,7 +190,7 @@
       const g = el('g', isDie ? { transform: `translate(${2 * cx} 0) scale(-1 1)`, filter: 'url(#f-raise)' } : { filter: 'url(#f-engrave)' }, root);
       const color = isDie ? '#c9ced6' : '#5d646e';
       const fontPx = hmm * pxPerMm / 0.72; // высота заглавной ≈ 0.72 кегля
-      const t = el('text', { x: cx, y: cy, 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-family': 'Manrope, Arial, sans-serif', 'font-weight': 800, 'font-size': fontPx, fill: color }, g);
+      const t = el('text', { x: cx, y: cy, 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-family': 'Oswald, "Arial Narrow", sans-serif', 'font-weight': 600, 'font-size': fontPx, fill: color }, g);
       t.textContent = text;
       let w = t.getComputedTextLength();
       const capH = hmm * pxPerMm;
