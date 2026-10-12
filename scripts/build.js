@@ -388,7 +388,10 @@ function home() {
         <button class="btn btn--ghost-dark" type="button" data-order data-product="Лазерная гравировка">Рассчитать по макету</button>
       </div>
     </div>
-    <div class="laser__img reveal"><img src="/img/site/eac-plates.jpg" alt="Таблички с лазерной маркировкой EAC" width="546" height="410" loading="lazy"></div>
+    <div class="laser__img laser__img--duo reveal">
+      <img src="${LASER.hero}" alt="Лазерная обработка металла" width="1200" height="789" loading="lazy">
+      <img src="/img/site/eac-plates.jpg" alt="Таблички с лазерной маркировкой EAC" width="546" height="410" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -654,16 +657,22 @@ function pressPage() {
 function laserPage() {
   const examples = STAMPS.filter(p => p.rating).slice(0, 4);
   const body = `
-<section class="page-hero">
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Лазерная гравировка</span></nav>
-    <p class="eyebrow eyebrow--light">Дополнительная услуга</p>
-    <h1>Лазерная гравировка и маркировка</h1>
-    <p class="lead">${LASER.lead}</p>
-    <ul class="press-kpi press-kpi--3">${LASER.facts.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ul>
-    <div class="hero__cta">
-      <button class="btn btn--lg" type="button" data-order data-product="Лазерная гравировка">Рассчитать по макету ${I.arrow}</button>
-      <a class="btn btn--lg btn--ghost" href="${C.max}" target="_blank" rel="noopener">${I.max}Отправить эскиз в MAX</a>
+<section class="page-hero page-hero--split">
+  <div class="wrap page-hero__in">
+    <div>
+      <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Лазерная гравировка</span></nav>
+      <p class="eyebrow eyebrow--light">Дополнительная услуга</p>
+      <h1>Лазерная гравировка и маркировка</h1>
+      <p class="lead">${LASER.lead}</p>
+      <ul class="press-kpi press-kpi--3">${LASER.facts.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ul>
+      <div class="hero__cta">
+        <button class="btn btn--lg" type="button" data-order data-product="Лазерная гравировка">Рассчитать по макету ${I.arrow}</button>
+        <a class="btn btn--lg btn--ghost" href="${C.max}" target="_blank" rel="noopener">${I.max}Отправить эскиз в MAX</a>
+      </div>
+    </div>
+    <div class="page-hero__img">
+      <img src="${LASER.hero}" alt="Лазерная обработка металла" width="1200" height="789" fetchpriority="high"><!-- сток со старого сайта, временно -->
+      <img class="page-hero__img2" src="/img/stock/laser-leather.jpg" alt="Лазерная гравировка по коже" width="1200" height="675" loading="lazy">
     </div>
   </div>
 </section>
@@ -671,7 +680,7 @@ function laserPage() {
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Что гравируем</p><h2>Маркировка под вашу задачу</h2><p class="sec__sub">${LASER.note}</p></div>
-    <div class="uses uses--3">${LASER.services.map(([t, d, p], i) => `<div class="use reveal"><b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}</div>`).join('')}</div>
+    <div class="uses uses--3">${LASER.services.map(([t, d, p, src], i) => `<div class="use use--img reveal">${src ? `<a class="use__img${src.includes('/products/') ? ' use__img--bottom' : ''}" href="${src.replace('-s.webp', '.webp')}" data-lb="laser" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}</div>`).join('')}</div>
   </div>
 </section>
 
@@ -687,7 +696,7 @@ function laserPage() {
         <li><h3>Получение</h3><p>СДЭК, Почта России или самовывоз в Перми.</p></li>
       </ol>
     </div>
-    <div class="laser__img reveal"><img src="/img/site/eac-plates.jpg" alt="Таблички с лазерной маркировкой EAC" width="546" height="410" loading="lazy"></div>
+    <div class="laser__img reveal"><img src="${LASER.process}" alt="Лазерная головка гравировального станка" width="1200" height="784" loading="lazy"></div>
   </div>
 </section>
 

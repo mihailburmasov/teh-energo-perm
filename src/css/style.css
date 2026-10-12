@@ -374,6 +374,29 @@ p { margin: 0 0 1em; }
   .lb__count { bottom: 22px; }
 }
 
+
+/* ---------- гравировка: фото ---------- */
+.page-hero--split { overflow: hidden; }
+.page-hero__in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+.page-hero__img { position: relative; padding-bottom: 48px; }
+.page-hero__img img { width: 100%; border-radius: var(--r-lg); box-shadow: var(--shadow-lg); }
+.page-hero__img img:first-child { aspect-ratio: 4 / 3; object-fit: cover; }
+.page-hero__img .page-hero__img2 { position: absolute; left: -28px; bottom: 0; width: 52%; aspect-ratio: 16 / 10; object-fit: cover; border: 6px solid var(--dark); transform: rotate(-3deg); }
+.use.use--img { padding-top: 0; overflow: hidden; display: flex; flex-direction: column; }
+.use__img--bottom img { object-position: center 85%; }
+.use__img { display: block; margin: 0 -24px 20px; aspect-ratio: 16 / 10; overflow: hidden; background: #1a1c21; cursor: zoom-in; }
+.use__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.use--img:hover .use__img img { transform: scale(1.05); }
+.use--img .use__price { margin-top: auto; padding-top: 14px; }
+.laser__img--duo { position: relative; padding: 0 0 56px 0; }
+.laser__img--duo img:first-child { aspect-ratio: 4 / 3; object-fit: cover; }
+.laser__img--duo img + img { position: absolute; right: -16px; bottom: 0; width: 46%; border: 6px solid #eceef2; transform: rotate(3deg); }
+@media (max-width: 1020px) {
+  .page-hero__in { grid-template-columns: minmax(0, 1fr); }
+  .page-hero__img { max-width: 560px; }
+  .page-hero__img .page-hero__img2 { left: auto; right: -8px; }
+}
+
 /* ---------- внутренние страницы ---------- */
 .page-hero { background: var(--dark); color: var(--on-dark); padding: calc(var(--hdr) + 48px) 0 56px; }
 .page-hero .lead--dark { color: var(--on-dark-2); }
