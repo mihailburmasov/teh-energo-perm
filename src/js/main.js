@@ -192,7 +192,7 @@
     };
     const sorter = () => {
       const k = sort.value;
-      cards.sort((a, b) => k === 'asc' ? a.dataset.price - b.dataset.price : k === 'desc' ? b.dataset.price - a.dataset.price : a.dataset.order - b.dataset.order)
+      cards.sort((a, b) => k === 'asc' ? a.dataset.price - b.dataset.price : k === 'desc' ? b.dataset.price - a.dataset.price : a.dataset.idx - b.dataset.idx)
         .forEach(c => grid.appendChild(c));
     };
     const fromHash = () => { const h = location.hash.slice(1); cat = chips.some(c => c.dataset.cat === h) ? h : 'all'; apply(); };

@@ -204,7 +204,7 @@ function orderModal() {
 
 function card(p, { eager = false } = {}) {
   const disc = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
-  return `<article class="card" data-cat="${p.category}" data-price="${p.price}" data-order="${p.order}" data-q="${esc((p.title + ' ' + p.short).toLowerCase())}">
+  return `<article class="card" data-cat="${p.category}" data-price="${p.price}" data-idx="${p.order}" data-q="${esc((p.title + ' ' + p.short).toLowerCase())}">
   <a class="card__img" href="/catalog/${p.slug}/" tabindex="-1" aria-hidden="true">
     <img src="${img(p, 1, true)}" alt="" width="300" height="400" loading="${eager ? 'eager' : 'lazy'}" decoding="async">
     ${disc ? `<span class="tag tag--sale">−${disc}%</span>` : ''}
