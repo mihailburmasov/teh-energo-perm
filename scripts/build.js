@@ -285,7 +285,7 @@ function home() {
 <section class="sec sec--tint" id="catalog">
   <div class="wrap">
     <div class="sec__head sec__head--row reveal">
-      <div><p class="eyebrow">Каталог</p><h2>Клейма в наличии</h2><p class="sec__sub">Цены актуальны на ${UPDATED_RU}. Оставьте заказ на сайте — перезвоним, подтвердим наличие и сроки доставки.</p></div>
+      <div><p class="eyebrow">Каталог</p><h2>Клейма в наличии</h2><p class="sec__sub">Оставьте заказ на сайте — перезвоним, подтвердим наличие и сроки доставки.</p></div>
       <a class="btn btn--ghost-dark" href="/catalog/">Весь каталог · ${STAMPS.length} ${I.arrow}</a>
     </div>
     <div class="cats reveal">
@@ -498,7 +498,7 @@ function catalogPage() {
   <div class="wrap">
     <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Каталог клейм</span></nav>
     <h1>Ударные клейма по металлу</h1>
-    <p class="lead lead--dark">${POS(STAMPS.length)} в наличии, цены актуальны на ${UPDATED_RU}. Нужно своё клеймо? <a href="/#constructor">Соберите его в конструкторе</a>.</p>
+    <p class="lead lead--dark">${POS(STAMPS.length)} в наличии. Нужно своё клеймо? <a href="/#constructor">Соберите его в конструкторе</a>.</p>
   </div>
 </section>
 <section class="sec sec--catalog">
@@ -568,7 +568,7 @@ function productPage(p) {
         <h1>${esc(p.title)}</h1>
         ${p.rating ? `<span class="rating rating--lg">${I.star}${p.rating}<small>${esc(p.reviews || '')} покупателей</small></span>` : ''}
         <div class="prod__buy">
-          <div class="price price--lg"><b>${rub(p.price)}</b>${p.oldPrice ? `<s>${rub(p.oldPrice)}</s>` : ''}<small>цена на ${UPDATED_RU}</small></div>
+          <div class="price price--lg"><b>${rub(p.price)}</b>${p.oldPrice ? `<s>${rub(p.oldPrice)}</s>` : ''}</div>
           <div class="prod__btns">
             <button class="btn btn--lg" type="button" data-order data-product="${esc(p.title)} (арт. ${p.sku})">Заказать ${I.arrow}</button>
             <a class="btn btn--lg btn--ghost-dark" href="${C.max}" target="_blank" rel="noopener">${I.max}Спросить в MAX</a>
