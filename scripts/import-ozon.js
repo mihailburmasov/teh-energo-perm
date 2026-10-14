@@ -115,7 +115,8 @@ const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) =>
   let [price, oldPrice] = r.price.map(num);
   if (PRICE_BY_BASE[sp.base]) [price, oldPrice] = [PRICE_BY_BASE[sp.base], null];
   const imgDir = path.join(__dirname, '../public/img/products', String(r.sku));
-  const images = r.imgs.map((_, k) => k + 1).filter(k => fs.existsSync(path.join(imgDir, `${k}.webp`)));
+  // все N.webp в папке товара — включая добавленные вручную фото клиента сверх выгрузки Ozon
+  const images = fs.existsSync(imgDir) ? fs.readdirSync(imgDir).map(f => +(f.match(/^(\d+)\.webp$/) || [])[1]).filter(Boolean).sort((a, b) => a - b) : [];
   return {
     sku: r.sku,
     slug: slugify(o.short || shortName(title), r.sku),
