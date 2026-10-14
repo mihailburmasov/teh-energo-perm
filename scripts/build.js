@@ -32,8 +32,8 @@ const count = id => STAMPS.filter(p => p.category === id).length;
 const I = {
   arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
-  max: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 1 0 18c-1.6 0-3.1-.4-4.4-1.2L3 21l1.2-4.4A9 9 0 0 1 12 3z"/><path d="M8 15V9l4 4 4-4v6"/></svg>',
-  vk: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.2c.4 3 1.8 5 3.3 5.4V7h3v3c1.4-.2 2.7-1.6 3.4-3H19c-.5 2-2 3.6-3.2 4.3C17 12 18.8 13.6 19.5 16h-3.3c-.6-1.5-1.9-2.8-3.7-3v3h-.4C7 16 3.4 12.5 3 7z"/></svg>',
+  max: '<img class="brand-ico" src="/img/site/max.png" alt="" width="20" height="20">', // оригинальный значок с max.ru
+  vk: '<img class="brand-ico" src="/img/site/vk.svg" alt="" width="20" height="20">', // vk.com/brand, #0077FF
   star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>',
   check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg>',
   bolt: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg>',
@@ -122,7 +122,7 @@ function header() {
     </nav>
     <div class="hdr__act">
       <a class="hdr__phone" href="tel:${C.phoneRaw}">${C.phone}</a>
-      <a class="icon-btn" href="${C.max}" target="_blank" rel="noopener" aria-label="Написать в MAX">${I.max}</a>
+      <a class="icon-btn icon-btn--brand" href="${C.max}" target="_blank" rel="noopener" aria-label="Написать в MAX">${I.max}</a>
       <button class="btn btn--sm hdr__cta" type="button" data-order>Заказать</button>
       <button class="icon-btn burger" type="button" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">${I.menu}</button>
     </div>
@@ -154,8 +154,8 @@ function footer() {
         <li><span>${I.pin}${C.address}</span></li>
       </ul>
       <div class="ftr__soc">
-        <a class="icon-btn" href="${C.max}" target="_blank" rel="noopener" aria-label="MAX">${I.max}</a>
-        <a class="icon-btn" href="${C.vk}" target="_blank" rel="noopener" aria-label="ВКонтакте">${I.vk}</a>
+        <a class="icon-btn icon-btn--brand" href="${C.max}" target="_blank" rel="noopener" aria-label="MAX">${I.max}</a>
+        <a class="icon-btn icon-btn--brand" href="${C.vk}" target="_blank" rel="noopener" aria-label="ВКонтакте">${I.vk}</a>
       </div>
     </div>
   </div>

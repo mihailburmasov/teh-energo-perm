@@ -61,13 +61,18 @@ p { margin: 0 0 1em; }
 .btn--ghost-dark:hover { background: var(--ink); color: #fff; box-shadow: none; }
 .btn--ozon { background: var(--ozon); }
 .btn--ozon:hover { background: #0047cc; box-shadow: 0 10px 24px -10px rgba(0, 91, 255, .7); }
-.btn--max { background: #5b4cf0; } .btn--max:hover { background: #4636d6; box-shadow: none; }
+.btn--max { background: #fff; color: var(--ink); } .btn--max:hover { background: #e9ebf0; color: var(--ink); box-shadow: none; }
 .link-quiet { color: var(--ink-3); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
 .link-quiet:hover { color: var(--ink); }
 .link { background: none; border: 0; padding: 0; color: var(--red); text-decoration: underline; cursor: pointer; font-weight: 600; }
 .icon-btn { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .07); color: inherit; cursor: pointer; transition: background .2s; text-decoration: none; }
 .icon-btn svg { font-size: 20px; }
 .icon-btn:hover { background: rgba(255, 255, 255, .16); }
+.brand-ico { width: 1.25em; height: 1.25em; border-radius: 22%; flex: none; display: block; }
+.icon-btn--brand { background: none; }
+.icon-btn--brand .brand-ico { width: 34px; height: 34px; transition: transform .2s; }
+.icon-btn--brand:hover { background: none; }
+.icon-btn--brand:hover .brand-ico { transform: scale(1.08); }
 
 /* ---------- шапка ---------- */
 .hdr { position: fixed; inset: 0 0 auto; z-index: 50; height: var(--hdr); color: var(--on-dark); transition: background .3s, box-shadow .3s; }
