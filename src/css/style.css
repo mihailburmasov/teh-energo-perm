@@ -392,6 +392,8 @@ p { margin: 0 0 1em; }
 .laser__img--duo img:first-child { aspect-ratio: 4 / 3; object-fit: cover; }
 .laser__img--duo img + img { position: absolute; right: -16px; bottom: 0; width: 46%; border: 6px solid #eceef2; transform: rotate(3deg); }
 
+.laser__img--tall img { aspect-ratio: 4 / 5; max-height: 560px; object-fit: cover; }
+
 /* ---------- матрицы и пуансоны ---------- */
 .laser--rev { grid-template-columns: .9fr 1.1fr; }
 .laser--rev .laser__img { order: -1; }

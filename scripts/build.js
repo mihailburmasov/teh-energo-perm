@@ -391,7 +391,7 @@ function home() {
       </div>
     </div>
     <div class="laser__img laser__img--duo reveal">
-      <img src="${LASER.hero}" alt="Лазерная обработка металла" width="1200" height="789" loading="lazy">
+      <img src="${LASER.hero}" alt="Металлические бирки с лазерной маркировкой" width="1400" height="1050" loading="lazy">
       <img src="/img/site/eac-plates.jpg" alt="Таблички с лазерной маркировкой EAC" width="546" height="410" loading="lazy">
     </div>
   </div>
@@ -694,8 +694,8 @@ function laserPage() {
       </div>
     </div>
     <div class="page-hero__img">
-      <img src="${LASER.hero}" alt="Лазерная обработка металла" width="1200" height="789" fetchpriority="high"><!-- сток со старого сайта, временно -->
-      <img class="page-hero__img2" src="/img/stock/laser-leather.jpg" alt="Лазерная гравировка по коже" width="1200" height="675" loading="lazy">
+      <img src="${LASER.hero}" alt="Металлические бирки с лазерной маркировкой" width="1400" height="1050" fetchpriority="high">
+      <img class="page-hero__img2" src="${LASER.hero2}" alt="Латунное клише для тиснения" width="480" height="640" loading="lazy">
     </div>
   </div>
 </section>
@@ -703,7 +703,7 @@ function laserPage() {
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Что гравируем</p><h2>Маркировка под вашу задачу</h2><p class="sec__sub">${LASER.note}</p></div>
-    <div class="uses uses--3">${LASER.services.map(([t, d, p, src, more], i) => `<div class="use use--img reveal">${src ? `<a class="use__img${src.includes('/products/') ? ' use__img--bottom' : ''}" href="${src.replace(/-s.(jpg|webp)$/, '.$1')}" data-lb="laser" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}${more ? `<a class="use__more" href="${more}">Подробнее ${I.arrow}</a>` : ''}</div>`).join('')}</div>
+    <div class="uses uses--3">${LASER.services.map(([t, d, p, src, more], i) => `<div class="use use--img reveal">${src ? `<a class="use__img${src.includes('/products/') ? ' use__img--bottom' : ''}" href="${src.replace(/-s\.(jpg|webp)$/, '.$1')}" data-lb="laser" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}${more ? `<a class="use__more" href="${more}">Подробнее ${I.arrow}</a>` : ''}</div>`).join('')}</div>
   </div>
 </section>
 
@@ -719,7 +719,7 @@ function laserPage() {
         <li><h3>Получение</h3><p>СДЭК, Почта России или самовывоз в Перми.</p></li>
       </ol>
     </div>
-    <div class="laser__img reveal"><img src="${LASER.process}" alt="Лазерная головка гравировального станка" width="1200" height="784" loading="lazy"></div>
+    <div class="laser__img laser__img--tall reveal"><img src="${LASER.process}" alt="Таблички EAC с лазерной маркировкой" width="1050" height="1400" loading="lazy"></div>
   </div>
 </section>
 
