@@ -263,12 +263,37 @@
       if (frame === 'triangle') t.setAttribute('y', cy + capH * 0.35);
       const shape = frameShape(frame, cx, cy, w, capH, g, { fill: 'none', stroke: color, 'stroke-width': Math.max(2, pxPerMm * 0.45), 'stroke-linejoin': 'round' });
       let tooBig = (squeezed && natW > maxW * 1.2) || capH > R * 1.5;
-      if (shape) { const b = shape.getBBox(); if (b.width > 2 * R * 1.04 || b.height > 2 * R * 1.04) tooBig = true; }
+      const b = shape ? shape.getBBox() : { y: cy - capH / 2, width: w, height: capH };
+      if (shape && (b.width > 2 * R * 1.04 || b.height > 2 * R * 1.04)) tooBig = true;
+      frameMm = b.height / pxPerMm;
+      // линейка и размер: в мм по масштабу заготовки
+      const ink = isDie ? '#c9ced6' : '#3a3f47';
+      const rl = el('g', { 'font-family': 'Golos Text, system-ui, sans-serif', 'font-size': 11, fill: ink, stroke: ink }, root);
+      el('rect', { x: 4, y: cy - R - 6, width: 30, height: 2 * R + 26, rx: 6, fill: '#fff', 'fill-opacity': isDie ? .06 : .35, stroke: 'none' }, rl);
+      el('line', { x1: 32, y1: cy - R, x2: 32, y2: cy + R, 'stroke-width': 1 }, rl);
+      let lastLabel = -99;
+      for (let i = 0; i <= dmm; i++) {
+        const y = cy - R + i * pxPerMm, big = i % 5 === 0;
+        el('line', { x1: big ? 20 : 25, y1: y, x2: 32, y2: y, 'stroke-width': big ? 1.4 : 1 }, rl);
+        if (big || (i === dmm && i - lastLabel >= 3)) { el('text', { x: 18, y: y + 4.5, 'text-anchor': 'end', stroke: 'none', 'font-size': 12 }, rl).textContent = i; lastLabel = i; }
+      }
+      el('text', { x: 19, y: cy + R + 15, 'text-anchor': 'middle', stroke: 'none', 'font-size': 10 }, rl).textContent = 'мм';
+      // размерная линия справа от рамки (или надписи)
+      const x = Math.min(cx + b.width / 2 + 16, 372), y1 = b.y, y2 = b.y + b.height;
+      const dim = el('g', { stroke: ink, fill: ink, 'stroke-width': 1.2 }, root);
+      el('line', { x1: x - 10, y1, x2: x + 6, y2: y1, 'stroke-dasharray': '3 3' }, dim);
+      el('line', { x1: x - 10, y1: y2, x2: x + 6, y2, 'stroke-dasharray': '3 3' }, dim);
+      el('line', { x1: x, y1: y1 + 1, x2: x, y2: y2 - 1 }, dim);
+      el('path', { d: `M${x - 4} ${y1 + 7}L${x} ${y1 + 1}L${x + 4} ${y1 + 7}M${x - 4} ${y2 - 7}L${x} ${y2 - 1}L${x + 4} ${y2 - 7}`, fill: 'none' }, dim);
+      const lbl = el('text', { x: x + 12, y: cy, transform: `rotate(-90 ${x + 12} ${cy})`, 'text-anchor': 'middle', 'font-family': 'Golos Text, system-ui, sans-serif', 'font-size': 15, 'font-weight': 600, stroke: 'none' }, dim);
+      lbl.textContent = `≈ ${fmtMm(frameMm)} мм`;
       cap.textContent = tooBig
         ? `Надпись не помещается на заготовке ⌀${dmm} мм — уменьшите шрифт, сократите текст или выберите заготовку больше.`
-        : `${isDie ? 'Рабочая часть (зеркально)' : 'Оттиск'} · символы ${hmm} мм · заготовка ⌀${dmm} мм · сталь ${val('c-steel')}`;
+        : `${isDie ? 'Рабочая часть (зеркально)' : 'Оттиск'} · символы ${hmm} мм · ${frame === 'none' ? 'высота' : 'рамка'} ≈ ${fmtMm(frameMm)} мм · заготовка ⌀${dmm} мм · сталь ${val('c-steel')}`;
       cap.style.color = tooBig ? '#ffb21a' : '';
     }
+    let frameMm = 0;
+    const fmtMm = v => String(Math.round(v * 2) / 2).replace('.', ',');
 
     $$('input, select', $('.cons__ctrl')).forEach(i => i.addEventListener('input', draw));
     $$('.cons__tabs button').forEach(b => b.addEventListener('click', () => {
@@ -278,7 +303,7 @@
     }));
     $('#c-send').addEventListener('click', () => {
       const frames = { none: 'без рамки', circle: 'в круге', triangle: 'в треугольнике', square: 'в квадрате', pentagon: 'в пятиугольнике' };
-      const conf = `Клеймо «${st.text.value.trim() || '—'}» ${frames[val('c-frame')]}, символы ${st.h.value} мм, заготовка ⌀${st.d.value} мм, сталь ${val('c-steel')}, ${Math.max(1, +st.qty.value || 1)} шт.`;
+      const conf = `Клеймо «${st.text.value.trim() || '—'}» ${frames[val('c-frame')]}, символы ${st.h.value} мм${val('c-frame') === 'none' ? '' : `, высота рамки ≈ ${fmtMm(frameMm)} мм`}, заготовка ⌀${st.d.value} мм, сталь ${val('c-steel')}, ${Math.max(1, +st.qty.value || 1)} шт.`;
       openOrder(conf, conf);
     });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
