@@ -103,10 +103,17 @@ const slugMap = { а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'e',ж:'zh',з:'z
 const slugify = (s, sku) => s.toLowerCase().split('').map(c => slugMap[c] ?? c).join('')
   .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60).replace(/-$/, '') + '-' + sku;
 
+// Цены клиента при прямом заказе по диаметру заготовки (14.10.2026) — заменяют цену с Ozon
+const PRICE_BY_BASE = { '20 мм': 3500, '10 мм': 3100 };
+
 const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) => {
   const o = OVERRIDES[r.sku] || {};
   const title = o.title || cleanTitle(r.title);
-  const [price, oldPrice] = r.price.map(num);
+  const sp = mergeSpecs(specs(title), PHOTO_SPECS[r.sku]);
+  const d = title.match(/Ф\s?(\d+)\s?мм/);
+  if (!sp.base && d) sp.base = d[1] + ' мм';
+  let [price, oldPrice] = r.price.map(num);
+  if (PRICE_BY_BASE[sp.base]) [price, oldPrice] = [PRICE_BY_BASE[sp.base], null];
   const imgDir = path.join(__dirname, '../public/img/products', String(r.sku));
   const images = r.imgs.map((_, k) => k + 1).filter(k => fs.existsSync(path.join(imgDir, `${k}.webp`)));
   return {
@@ -118,7 +125,7 @@ const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) =>
     price, oldPrice: oldPrice || null,
     rating: r.labels[0] && /^\d[.,]\d$/.test(r.labels[0]) ? r.labels[0].replace('.', ',') : null,
     reviews: r.labels[1] && /отзыв/.test(r.labels[1]) ? r.labels[1] : null,
-    specs: mergeSpecs(specs(title), PHOTO_SPECS[r.sku]),
+    specs: sp,
     images,
     ozon: `https://www.ozon.ru/product/${r.sku}/`,
     order: i,
@@ -126,6 +133,6 @@ const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) =>
 });
 
 fs.writeFileSync(path.join(__dirname, '../data/products.json'),
-  JSON.stringify({ updated: '2026-10-12', source: 'ozon.ru/seller/teh-enerdgy-2374593', categories: CATEGORIES, products }, null, 1) + '\n');
+  JSON.stringify({ updated: '2026-10-14', source: 'ozon.ru/seller/teh-enerdgy-2374593', categories: CATEGORIES, products }, null, 1) + '\n');
 const by = {}; products.forEach(p => by[p.category] = (by[p.category] || 0) + 1);
 console.log(products.length, by, 'без фото:', products.filter(p => !p.images.length).map(p => p.sku).join(','));
