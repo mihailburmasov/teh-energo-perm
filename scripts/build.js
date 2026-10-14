@@ -495,11 +495,22 @@ const FAQ = [
 // ---------- каталог ----------
 function catalogPage() {
   const body = `
-<section class="page-hero">
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Каталог клейм</span></nav>
-    <h1>Ударные клейма по металлу</h1>
-    <p class="lead lead--dark">${POS(STAMPS.length)} в наличии. Нужно своё клеймо? <a href="/#constructor">Соберите его в конструкторе</a>.</p>
+<section class="page-hero page-hero--split">
+  <div class="wrap page-hero__in">
+    <div>
+      <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Каталог клейм</span></nav>
+      <h1>Ударные клейма по металлу</h1>
+      <p class="lead lead--dark">ОТК, знаки соответствия, марки стали, символы и наборы — со склада и по вашему эскизу. Нужно своё клеймо? <a href="/#constructor">Соберите его в конструкторе</a>.</p>
+      <ul class="press-kpi press-kpi--fit">
+        <li><b>${STAMPS.length}</b><span>клейма в наличии</span></li>
+        <li><b>50–58 HRC</b><span>сталь 9ХС и У8А, закалка</span></li>
+        <li><b>от 1 дня</b><span>клеймо по эскизу</span></li>
+      </ul>
+    </div>
+    <div class="page-hero__img page-hero__img--stamps">
+      <img src="/img/products/3826282219/1.webp" alt="Ударное клеймо У8А, рабочая часть крупным планом" width="750" height="1000" fetchpriority="high">
+      <img class="page-hero__img2" src="/img/products/3539590846/1-s.webp" alt="Набор ударных клейм ОТК в треугольнике" width="300" height="400" loading="lazy">
+    </div>
   </div>
 </section>
 <section class="sec sec--catalog">
