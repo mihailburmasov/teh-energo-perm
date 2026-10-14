@@ -391,6 +391,17 @@ p { margin: 0 0 1em; }
 .laser__img--duo { position: relative; padding: 0 0 56px 0; }
 .laser__img--duo img:first-child { aspect-ratio: 4 / 3; object-fit: cover; }
 .laser__img--duo img + img { position: absolute; right: -16px; bottom: 0; width: 46%; border: 6px solid #eceef2; transform: rotate(3deg); }
+
+/* ---------- матрицы и пуансоны ---------- */
+.laser--rev { grid-template-columns: .9fr 1.1fr; }
+.laser--rev .laser__img { order: -1; }
+.laser__img--light img + img { border-color: var(--bg); right: auto; left: -16px; transform: rotate(-3deg); }
+.use__more { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-weight: 600; font-size: 15px; color: var(--red); text-decoration: none; }
+.use__more:hover { text-decoration: underline; }
+.press-kpi--fit { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.press-kpi--fit li { padding-right: 16px; }
+.press-kpi--fit b { font-size: 21px; line-height: 1.25; margin-bottom: 4px; }
+.use__more svg { width: 16px; height: 16px; }
 @media (max-width: 1020px) {
   .page-hero__in { grid-template-columns: minmax(0, 1fr); }
   .page-hero__img { max-width: 560px; }
@@ -483,6 +494,13 @@ p { margin: 0 0 1em; }
 .legal-txt a { color: var(--red); }
 
 /* ---------- адаптив ---------- */
+@media (max-width: 1360px) {
+  .nav { gap: 0; }
+  .nav a { padding: 8px 9px; font-size: 14px; }
+}
+@media (max-width: 1300px) {
+  .hdr__phone { display: none; }
+}
 @media (max-width: 1180px) {
   .hdr__phone { display: none; }
   .grid { grid-template-columns: repeat(3, 1fr); }
@@ -495,6 +513,7 @@ p { margin: 0 0 1em; }
   .nav a { padding: 14px 12px; font-size: 17px; border-bottom: 1px solid var(--line-dark); border-radius: 0; }
   .hdr__in { justify-content: space-between; }
   .hero__in, .press-teaser, .laser, .contacts, .press-hero__in, .press-ctrl, .faq-wrap, .prod, .cons { grid-template-columns: minmax(0, 1fr); }
+  .laser--rev .laser__img { order: 0; }
   .hero__vis { height: 420px; max-width: 520px; width: 100%; margin: 0 auto; }
   .dirs { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr 1fr; }
@@ -546,7 +565,7 @@ p { margin: 0 0 1em; }
   .hero__cta .btn { flex: 1 1 100%; }
 }
 @media (max-width: 1020px) {
-  .press-kpi--3 li:last-child { grid-column: 1 / -1; }
+  .press-kpi--3 li:last-child, .press-kpi--fit li:last-child { grid-column: 1 / -1; }
 }
 @media (max-width: 420px) {
   h1 { font-size: 32px; }

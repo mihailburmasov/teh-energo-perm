@@ -10,6 +10,7 @@ const C = require('../data/company.json');
 const { categories: CATS, products: ALL, updated } = require('../data/products.json');
 const PRESS = require('../data/press.json');
 const LASER = require('../data/laser.json');
+const MATRIX = require('../data/matrix.json');
 
 const PRODUCTS = ALL.filter(p => p.images.length);
 const STAMPS = PRODUCTS.filter(p => p.category !== 'equipment' || /набор/i.test(p.title));
@@ -56,6 +57,7 @@ const LOGO_MARK = `<svg class="logo-mark" viewBox="128 180 323 290" aria-hidden=
 const NAV = [
   ['/catalog/', 'Клейма'],
   ['/pressy/', 'Прессы'],
+  ['/matricy/', 'Матрицы'],
   ['/gravirovka/', 'Гравировка'],
   ['/#constructor', 'Конструктор'],
   ['/#delivery', 'Доставка'],
@@ -135,7 +137,7 @@ function footer() {
   <div class="wrap ftr__grid">
     <div class="ftr__brand">
       <a class="logo logo--light" href="/">${LOGO_MARK}<span class="logo__txt"><b>${C.brand}</b><small>клейма · прессы</small></span></a>
-      <p>Ударные клейма, гидравлические прессы и лазерная маркировка. Производство в Перми, отправка по всей России.</p>
+      <p>Ударные клейма, гидравлические прессы, матрицы и пуансоны, лазерная маркировка. Производство в Перми, отправка по всей России.</p>
       <span class="ozon-badge">${I.star}<b>${C.ozonStats.rating}</b> · ${C.ozonStats.reviews} отзывов покупателей</span>
     </div>
     <div>
@@ -144,7 +146,7 @@ function footer() {
     </div>
     <div>
       <h3>Каталог</h3>
-      <ul>${CATS.filter(c => c.id !== 'equipment').map(c => `<li><a href="/catalog/#${c.id}">${c.name}</a></li>`).join('')}<li><a href="/pressy/">Гидравлические прессы</a></li><li><a href="/gravirovka/">Лазерная гравировка</a></li></ul>
+      <ul>${CATS.filter(c => c.id !== 'equipment').map(c => `<li><a href="/catalog/#${c.id}">${c.name}</a></li>`).join('')}<li><a href="/pressy/">Гидравлические прессы</a></li><li><a href="/matricy/">Матрицы и пуансоны</a></li><li><a href="/gravirovka/">Лазерная гравировка</a></li></ul>
     </div>
     <div>
       <h3>Контакты</h3>
@@ -395,6 +397,25 @@ function home() {
   </div>
 </section>
 
+<section class="sec" id="matrix">
+  <div class="wrap laser laser--rev">
+    <div class="laser__txt reveal">
+      <p class="eyebrow">Изготовление на заказ</p>
+      <h2>Матрицы и пуансоны для тиснения</h2>
+      <p>${MATRIX.lead}</p>
+      <ul class="ticks">${MATRIX.works.slice(0, 5).map(([t]) => `<li>${I.check}<span><b>${t}</b></span></li>`).join('')}</ul>
+      <div class="hero__cta">
+        <a class="btn" href="/matricy/">Подробнее о матрицах ${I.arrow}</a>
+        <button class="btn btn--ghost-dark" type="button" data-order data-product="Матрица и пуансон">Рассчитать по образцу</button>
+      </div>
+    </div>
+    <div class="laser__img laser__img--duo laser__img--light reveal">
+      <img src="/img/matrix/caps.jpg" alt="Матрицы и колпачки с тиснением логотипов" width="1400" height="1050" loading="lazy">
+      <img src="/img/matrix/pair-s.jpg" alt="Пара «матрица — пуансон»" width="640" height="480" loading="lazy">
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="reviews">
   <div class="wrap reviews reveal">
     <div class="reviews__score">
@@ -466,6 +487,7 @@ const FAQ = [
   ['Как оплатить заказ?', 'Банковской картой, переводом на расчётный счёт или наличными при самовывозе. Работаем с физическими и юридическими лицами: договор, чек, гарантия.'],
   ['Как доставляете?', 'СДЭК и Почтой России, стоимость доставки оплачивает покупатель.'],
   ['Делаете лазерную гравировку?', 'Да, это наша дополнительная услуга: шильдики, таблички, бирки, клише для тиснения, логотипы и номера на деталях, гравировка по фото. Работаем на оптоволоконном лазере по металлу, пластику и коже. Пришлите макет — назовём цену и срок.'],
+  ['Делаете матрицы и пуансоны для тиснения?', 'Да. Изготавливаем матрицы и пуансоны для тиснения логотипов и надписей на колпачках, крышках и пробках — по файлу логотипа или образцу изделия, в том числе серией одинаковых комплектов. Пришлите логотип и размеры — рассчитаем.'],
   ['Можно ли изготовить пресс под нашу задачу?', `Да. Базовая модель — ${PRESS.model} (${PRESS.force}, ЧПУ). Программу ЧПУ можно скорректировать под ваши алгоритмы, а при снятии боковых панелей пресс встраивается в линию. Опишите задачу в заявке — предложим решение.`],
 ];
 
@@ -680,7 +702,7 @@ function laserPage() {
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Что гравируем</p><h2>Маркировка под вашу задачу</h2><p class="sec__sub">${LASER.note}</p></div>
-    <div class="uses uses--3">${LASER.services.map(([t, d, p, src], i) => `<div class="use use--img reveal">${src ? `<a class="use__img${src.includes('/products/') ? ' use__img--bottom' : ''}" href="${src.replace('-s.webp', '.webp')}" data-lb="laser" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}</div>`).join('')}</div>
+    <div class="uses uses--3">${LASER.services.map(([t, d, p, src, more], i) => `<div class="use use--img reveal">${src ? `<a class="use__img${src.includes('/products/') ? ' use__img--bottom' : ''}" href="${src.replace(/-s.(jpg|webp)$/, '.$1')}" data-lb="laser" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}${more ? `<a class="use__more" href="${more}">Подробнее ${I.arrow}</a>` : ''}</div>`).join('')}</div>
   </div>
 </section>
 
@@ -734,6 +756,82 @@ function laserPage() {
     canonical: '/gravirovka/', body, bodyClass: 'laser-page',
     jsonld: [crumbsLd([['Главная', '/'], ['Лазерная гравировка', '/gravirovka/']]), {
       '@context': 'https://schema.org', '@type': 'Service', name: 'Лазерная гравировка и маркировка', serviceType: 'Лазерная гравировка', areaServed: 'RU',
+      provider: { '@type': 'LocalBusiness', name: C.brand, telephone: C.phoneRaw, address: { '@type': 'PostalAddress', streetAddress: C.street, addressLocality: C.city, addressCountry: 'RU' } },
+    }],
+  });
+}
+
+// ---------- матрицы и пуансоны ----------
+function matrixPage() {
+  const full = src => src.replace(/-s\.(jpg|webp)$/, '.$1');
+  const body = `
+<section class="page-hero page-hero--split">
+  <div class="wrap page-hero__in">
+    <div>
+      <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><span>Матрицы и пуансоны</span></nav>
+      <p class="eyebrow eyebrow--light">Изготовление на заказ</p>
+      <h1>Изготовление матриц и пуансонов</h1>
+      <p class="lead">${MATRIX.lead}</p>
+      <ul class="press-kpi press-kpi--fit">${MATRIX.facts.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ul>
+      <div class="hero__cta">
+        <button class="btn btn--lg" type="button" data-order data-product="Матрица и пуансон">Рассчитать по образцу ${I.arrow}</button>
+        <a class="btn btn--lg btn--ghost" href="${C.max}" target="_blank" rel="noopener">${I.max}Отправить логотип в MAX</a>
+      </div>
+    </div>
+    <div class="page-hero__img">
+      <img src="${MATRIX.hero}" alt="Матрицы и колпачки с тиснением логотипов" width="1400" height="1050" fetchpriority="high">
+      <img class="page-hero__img2" src="${MATRIX.hero2}" alt="Пара «матрица — пуансон»" width="640" height="480" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head reveal"><p class="eyebrow">Что делаем</p><h2>Инструмент для тиснения под ваш логотип</h2><p class="sec__sub">${MATRIX.note}</p></div>
+    <div class="uses uses--3">${MATRIX.works.map(([t, d, src], i) => `<div class="use use--img reveal"><a class="use__img" href="${full(src)}" data-lb="matrix" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a><b>0${i + 1}</b><h3>${t}</h3><p>${d}</p></div>`).join('')}</div>
+  </div>
+</section>
+
+<section class="sec sec--tint">
+  <div class="wrap laser">
+    <div class="laser__txt reveal">
+      <p class="eyebrow">Как работаем</p>
+      <h2>От логотипа до готового комплекта</h2>
+      <ol class="ctrl-list">
+        <li><h3>Макет</h3><p>Пришлите логотип, эскиз или образец изделия и размеры посадочного места.</p></li>
+        <li><h3>Согласование</h3><p>Подготовим макет рисунка, назовём цену и срок.</p></li>
+        <li><h3>Изготовление</h3><p>Готовим заготовку и наносим рисунок на оптоволоконном лазере.</p></li>
+        <li><h3>Получение</h3><p>СДЭК, Почта России или самовывоз в Перми.</p></li>
+      </ol>
+    </div>
+    <div class="laser__img reveal"><a href="/img/matrix/series.jpg" data-lb="matrix-p" aria-label="Увеличить фото"><img src="/img/matrix/series-s.jpg" alt="Серия одинаковых матриц и колпачок с тиснением" width="480" height="640" loading="lazy"></a></div>
+  </div>
+</section>
+
+<section class="sec sec--dark">
+  <div class="wrap contacts">
+    <div class="contacts__info reveal">
+      <p class="eyebrow eyebrow--light">Заявка на матрицу</p>
+      <h2>Пришлите логотип или образец — рассчитаем</h2>
+      <p class="lead">Подойдёт файл логотипа, фото колпачка или крышки, чертёж посадочного места или просто описание задачи.</p>
+      <ul class="contacts__list">
+        <li><a href="tel:${C.phoneRaw}">${I.phone}${C.phone}</a></li>
+        <li><a href="mailto:${C.email}">${I.mail}${C.email}</a></li>
+      </ul>
+      <div class="contacts__msg">
+        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}MAX</a>
+        <a class="btn btn--tg" href="${C.telegram}" target="_blank" rel="noopener">${I.tg}Telegram</a>
+      </div>
+    </div>
+    <div class="contacts__form reveal">${leadForm({ id: 'matrix', title: 'Расчёт матрицы' })}</div>
+  </div>
+</section>`;
+  return layout({
+    title: `Изготовление матриц и пуансонов для тиснения в Перми | ${C.brand}`,
+    description: 'Матрицы и пуансоны для тиснения логотипов на колпачках, крышках и пробках. Рисунок на оптоволоконном лазере: надписи по кругу, гербы, орнаменты. Серийные комплекты, расчёт по логотипу или образцу.',
+    canonical: '/matricy/', body, ogImage: MATRIX.hero, bodyClass: 'laser-page',
+    jsonld: [crumbsLd([['Главная', '/'], ['Матрицы и пуансоны', '/matricy/']]), {
+      '@context': 'https://schema.org', '@type': 'Service', name: 'Изготовление матриц и пуансонов', serviceType: 'Изготовление матриц для тиснения', areaServed: 'RU',
       provider: { '@type': 'LocalBusiness', name: C.brand, telephone: C.phoneRaw, address: { '@type': 'PostalAddress', streetAddress: C.street, addressLocality: C.city, addressCountry: 'RU' } },
     }],
   });
@@ -815,12 +913,13 @@ write('index.html', home());
 write('catalog/index.html', catalogPage());
 STAMPS.forEach(p => write(`catalog/${p.slug}/index.html`, productPage(p)));
 write('pressy/index.html', pressPage());
+write('matricy/index.html', matrixPage());
 write('gravirovka/index.html', laserPage());
 for (const [slug, [t, h]] of Object.entries(LEGAL)) write(`${slug}/index.html`, legalPage(slug, t, h));
 write('404.html', layout({ title: `Страница не найдена | ${C.brand}`, description: 'Страница не найдена', canonical: '/404.html', bodyClass: 'legal',
   body: `<section class="sec"><div class="wrap legal-txt"><h1>Страница не найдена</h1><p>Возможно, клеймо переехало. Загляните в <a href="/catalog/">каталог</a> или на <a href="/">главную</a>.</p></div></section>` }));
 
-const urls = ['/', '/catalog/', '/pressy/', '/gravirovka/', ...STAMPS.map(p => `/catalog/${p.slug}/`), '/politika/', '/soglasie/'];
+const urls = ['/', '/catalog/', '/pressy/', '/matricy/', '/gravirovka/', ...STAMPS.map(p => `/catalog/${p.slug}/`), '/politika/', '/soglasie/'];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${C.siteUrl}${u}</loc><lastmod>${updated}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', BASE ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nDisallow: /send.php\nSitemap: ${C.siteUrl}/sitemap.xml\n`);
 if (BASE) { // на Pages PHP и .htaccess не работают
