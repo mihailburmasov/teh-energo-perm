@@ -32,7 +32,6 @@ const count = id => STAMPS.filter(p => p.category === id).length;
 const I = {
   arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
-  tg: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 12-9"/></svg>',
   max: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 1 0 18c-1.6 0-3.1-.4-4.4-1.2L3 21l1.2-4.4A9 9 0 0 1 12 3z"/><path d="M8 15V9l4 4 4-4v6"/></svg>',
   vk: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.2c.4 3 1.8 5 3.3 5.4V7h3v3c1.4-.2 2.7-1.6 3.4-3H19c-.5 2-2 3.6-3.2 4.3C17 12 18.8 13.6 19.5 16h-3.3c-.6-1.5-1.9-2.8-3.7-3v3h-.4C7 16 3.4 12.5 3 7z"/></svg>',
   star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>',
@@ -90,7 +89,7 @@ function layout({ title, description, canonical, body, jsonld = [], ogImage = '/
 <link rel="stylesheet" href="/css/style.css?v=${BUILD_ID}">
 ${jsonld.map(j => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n')}
 </head>
-<body class="${bodyClass}" data-phone="${C.phone}" data-phone-raw="${C.phoneRaw}" data-tg="${C.telegram}">
+<body class="${bodyClass}" data-phone="${C.phone}" data-phone-raw="${C.phoneRaw}" data-max="${C.max}">
 <a class="skip" href="#main">К содержимому</a>
 ${header()}
 <main id="main">
@@ -124,7 +123,6 @@ function header() {
     <div class="hdr__act">
       <a class="hdr__phone" href="tel:${C.phoneRaw}">${C.phone}</a>
       <a class="icon-btn" href="${C.max}" target="_blank" rel="noopener" aria-label="Написать в MAX">${I.max}</a>
-      <a class="icon-btn hdr__tg" href="${C.telegram}" target="_blank" rel="noopener" aria-label="Написать в Telegram">${I.tg}</a>
       <button class="btn btn--sm hdr__cta" type="button" data-order>Заказать</button>
       <button class="icon-btn burger" type="button" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">${I.menu}</button>
     </div>
@@ -157,7 +155,6 @@ function footer() {
       </ul>
       <div class="ftr__soc">
         <a class="icon-btn" href="${C.max}" target="_blank" rel="noopener" aria-label="MAX">${I.max}</a>
-        <a class="icon-btn" href="${C.telegram}" target="_blank" rel="noopener" aria-label="Telegram">${I.tg}</a>
         <a class="icon-btn" href="${C.vk}" target="_blank" rel="noopener" aria-label="ВКонтакте">${I.vk}</a>
       </div>
     </div>
@@ -200,7 +197,7 @@ function orderModal() {
     <h2 id="order-title">Заявка</h2>
     <p class="modal__sub" id="order-sub">Перезвоним в рабочее время, уточним детали и сроки.</p>
     ${leadForm({ id: 'modal', compact: true })}
-    <p class="modal__alt">Быстрее в мессенджере: <a href="${C.max}" target="_blank" rel="noopener">MAX</a> · <a href="${C.telegram}" target="_blank" rel="noopener">Telegram</a></p>
+    <p class="modal__alt">Быстрее в мессенджере: <a href="${C.max}" target="_blank" rel="noopener">написать в MAX</a></p>
   </div>
 </div>`;
 }
@@ -463,8 +460,7 @@ function home() {
         <li><span>${I.pin}${C.address}</span></li>
       </ul>
       <div class="contacts__msg">
-        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}MAX</a>
-        <a class="btn btn--tg" href="${C.telegram}" target="_blank" rel="noopener">${I.tg}Telegram</a>
+        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}Написать в MAX</a>
       </div>
     </div>
     <div class="contacts__form reveal">${leadForm({ id: 'contacts', title: 'Заявка на изготовление', withConfig: true })}</div>
@@ -755,8 +751,7 @@ function laserPage() {
         <li><a href="mailto:${C.email}">${I.mail}${C.email}</a></li>
       </ul>
       <div class="contacts__msg">
-        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}MAX</a>
-        <a class="btn btn--tg" href="${C.telegram}" target="_blank" rel="noopener">${I.tg}Telegram</a>
+        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}Написать в MAX</a>
       </div>
     </div>
     <div class="contacts__form reveal">${leadForm({ id: 'laser', title: 'Расчёт гравировки' })}</div>
@@ -831,8 +826,7 @@ function matrixPage() {
         <li><a href="mailto:${C.email}">${I.mail}${C.email}</a></li>
       </ul>
       <div class="contacts__msg">
-        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}MAX</a>
-        <a class="btn btn--tg" href="${C.telegram}" target="_blank" rel="noopener">${I.tg}Telegram</a>
+        <a class="btn btn--max" href="${C.max}" target="_blank" rel="noopener">${I.max}Написать в MAX</a>
       </div>
     </div>
     <div class="contacts__form reveal">${leadForm({ id: 'matrix', title: 'Расчёт матрицы' })}</div>

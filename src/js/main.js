@@ -159,7 +159,7 @@
         msg.textContent = 'Спасибо! Заявка отправлена — свяжемся с вами в рабочее время.'; msg.classList.add('is-ok');
       } catch (err) {
         const B = document.body.dataset;
-        msg.innerHTML = `Не удалось отправить заявку. Позвоните <a href="tel:${B.phoneRaw}">${B.phone}</a> или напишите в <a href="${B.tg}" target="_blank" rel="noopener">Telegram</a>.`;
+        msg.innerHTML = `Не удалось отправить заявку. Позвоните <a href="tel:${B.phoneRaw}">${B.phone}</a> или напишите в <a href="${B.max}" target="_blank" rel="noopener">MAX</a>.`;
         msg.classList.add('is-err');
       } finally { btn.disabled = false; }
     });

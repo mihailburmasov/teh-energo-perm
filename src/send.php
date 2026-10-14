@@ -1,12 +1,9 @@
 <?php
-// Приём заявок с сайта ТЕХ-ЭНЕРГО: письмо на почту + (по желанию) сообщение в Telegram.
+// Приём заявок с сайта ТЕХ-ЭНЕРГО: письмо на почту.
 // Нужен хостинг с PHP 7.4+ и работающей функцией mail() (Beget, Timeweb, reg.ru и т. п.).
-// Telegram: создать бота у @BotFather, вписать токен и chat_id ниже.
 
 const MAIL_TO   = '{{EMAIL}}';               // подставляется при сборке из data/company.json
 const MAIL_FROM = 'no-reply@{{DOMAIN}}';   // адрес на домене сайта — так письма реже уходят в спам
-const TG_TOKEN  = '';                           // например '123456:ABC...'
-const TG_CHAT   = '';                           // например '-1001234567890'
 const MAX_FILE  = 10 * 1024 * 1024;
 const ALLOWED   = ['jpg', 'jpeg', 'png', 'webp', 'pdf', 'dxf', 'dwg', 'cdr', 'ai', 'svg'];
 
@@ -57,21 +54,5 @@ if ($file) {
 }
 $mailed = @mail(MAIL_TO, $subject, $body, $headers);
 
-// Telegram (необязательно)
-$tg = false;
-if (TG_TOKEN && TG_CHAT) {
-  $api = 'https://api.telegram.org/bot' . TG_TOKEN;
-  $ch = curl_init("$api/sendMessage");
-  curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10,
-    CURLOPT_POSTFIELDS => ['chat_id' => TG_CHAT, 'text' => $text]]);
-  $tg = (bool) curl_exec($ch); curl_close($ch);
-  if ($file) {
-    $ch = curl_init("$api/sendDocument");
-    curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 20,
-      CURLOPT_POSTFIELDS => ['chat_id' => TG_CHAT, 'document' => new CURLFile($file['path'], '', $file['name'])]]);
-    curl_exec($ch); curl_close($ch);
-  }
-}
-
-if (!$mailed && !$tg) { http_response_code(500); out(false, 'Не удалось отправить'); }
+if (!$mailed) { http_response_code(500); out(false, 'Не удалось отправить'); }
 out(true);
