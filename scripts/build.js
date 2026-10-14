@@ -683,6 +683,13 @@ function pressPage() {
   });
 }
 
+// Карточка услуги (гравировка, матрицы) — по образцу карточки товара: фото — посмотреть (увеличить), кнопка — заявка
+function serviceCard({ i, t, d, src, price, lb, product, more }) {
+  const full = src && src.replace(/-s\.(jpg|webp)$/, '.$1');
+  return `<div class="use use--img reveal">${src ? `<a class="use__img" href="${full}" data-lb="${lb}" aria-label="Увеличить фото: ${esc(t)}"><img src="${src}" alt="${esc(t)}" loading="lazy"><span class="use__zoom" aria-hidden="true">${I.search}</span></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${more ? `<a class="use__more" href="${more}">Подробнее ${I.arrow}</a>` : ''}
+  <div class="use__foot"><span class="use__price${price ? '' : ' use__price--ask'}">${price || 'по макету'}</span><button class="btn btn--sm" type="button" data-order data-product="${esc(product)}" aria-label="Заказать: ${esc(t)}">Заказать</button></div></div>`;
+}
+
 // ---------- лазерная гравировка (дополнительная услуга) ----------
 function laserPage() {
   const examples = STAMPS.filter(p => p.rating).slice(0, 4);
@@ -710,7 +717,7 @@ function laserPage() {
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Что гравируем</p><h2>Маркировка под вашу задачу</h2><p class="sec__sub">${LASER.note}</p></div>
-    <div class="uses uses--3">${LASER.services.map(([t, d, p, src, more], i) => `<div class="use use--img reveal">${src ? `<a class="use__img${src.includes('/products/') ? ' use__img--bottom' : ''}" href="${src.replace(/-s\.(jpg|webp)$/, '.$1')}" data-lb="laser" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${p ? `<span class="use__price">${p}</span>` : ''}${more ? `<a class="use__more" href="${more}">Подробнее ${I.arrow}</a>` : ''}</div>`).join('')}</div>
+    <div class="uses uses--3">${LASER.services.map(([t, d, p, src, more], i) => serviceCard({ i, t, d, src, more, price: p, lb: 'laser', product: `Гравировка: ${t}` })).join('')}</div>
   </div>
 </section>
 
@@ -770,7 +777,6 @@ function laserPage() {
 
 // ---------- матрицы и пуансоны ----------
 function matrixPage() {
-  const full = src => src.replace(/-s\.(jpg|webp)$/, '.$1');
   const body = `
 <section class="page-hero page-hero--split">
   <div class="wrap page-hero__in">
@@ -795,7 +801,7 @@ function matrixPage() {
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Что делаем</p><h2>Инструмент для тиснения под ваш логотип</h2><p class="sec__sub">${MATRIX.note}</p></div>
-    <div class="uses uses--3">${MATRIX.works.map(([t, d, src], i) => `<div class="use use--img reveal"><a class="use__img" href="${full(src)}" data-lb="matrix" aria-label="${t}"><img src="${src}" alt="${t}" loading="lazy"></a><b>0${i + 1}</b><h3>${t}</h3><p>${d}</p></div>`).join('')}</div>
+    <div class="uses uses--3">${MATRIX.works.map(([t, d, src], i) => serviceCard({ i, t, d, src, price: MATRIX.price, lb: 'matrix', product: `Матрица: ${t}` })).join('')}</div>
   </div>
 </section>
 
