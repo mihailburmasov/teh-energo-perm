@@ -42,6 +42,7 @@ const OVERRIDES = {
 // Характеристики, напечатанные на главном фото товара (сталь, заготовка, высота символа). HRC на фото — 53-58.
 // Формат: sku: [сталь, заготовка мм, высота символа/фигуры мм | null]
 const PHOTO_SPECS = {
+  3539590846: ['9ХС', 20, 10], // набор ОТК: с фото клиента 14.10.2026
   2548412438: ['9ХС', 20], 1732570493: ['У8А', 10, 3], 3583109849: ['У8А', 10], 3308309654: ['9ХС', 20],
   4838138933: ['9ХС', 20, 10], 4840849029: ['9ХС', 20, 13], 3044088820: ['У8А', 10, 7], 3987977621: ['У8А', 10, 5],
   3545537905: ['9ХС', 20], 5900439548: ['9ХС', 20], 5900452062: ['9ХС', 20], 3069182365: ['9ХС', 20, 10],
@@ -103,7 +104,7 @@ const slugMap = { а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'e',ж:'zh',з:'z
 const slugify = (s, sku) => s.toLowerCase().split('').map(c => slugMap[c] ?? c).join('')
   .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60).replace(/-$/, '') + '-' + sku;
 
-// Цены клиента при прямом заказе по диаметру заготовки (14.10.2026) — заменяют цену с Ozon
+// Цены клиента при прямом заказе по диаметру заготовки (14.10.2026) — заменяют цену с Ozon; на наборы не действуют
 const PRICE_BY_BASE = { '20 мм': 3500, '10 мм': 3100 };
 
 const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) => {
@@ -113,7 +114,7 @@ const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) =>
   const d = title.match(/Ф\s?(\d+)\s?мм/);
   if (!sp.base && d) sp.base = d[1] + ' мм';
   let [price, oldPrice] = r.price.map(num);
-  if (PRICE_BY_BASE[sp.base]) [price, oldPrice] = [PRICE_BY_BASE[sp.base], null];
+  if (PRICE_BY_BASE[sp.base] && !/набор/i.test(title)) [price, oldPrice] = [PRICE_BY_BASE[sp.base], null];
   const imgDir = path.join(__dirname, '../public/img/products', String(r.sku));
   // все N.webp в папке товара — включая добавленные вручную фото клиента сверх выгрузки Ozon
   const images = fs.existsSync(imgDir) ? fs.readdirSync(imgDir).map(f => +(f.match(/^(\d+)\.webp$/) || [])[1]).filter(Boolean).sort((a, b) => a - b) : [];

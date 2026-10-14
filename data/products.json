@@ -1483,7 +1483,12 @@
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "steel": "9ХС",
+    "hrc": "53-58",
+    "base": "20 мм",
+    "font": "10 мм"
+   },
    "images": [
     1,
     2,
