@@ -683,11 +683,89 @@ function pressPage() {
   });
 }
 
-// Карточка услуги (гравировка, матрицы) — по образцу карточки товара: фото — посмотреть (увеличить), кнопка — заявка
-function serviceCard({ i, t, d, src, price, lb, product, more }) {
-  const full = src && src.replace(/-s\.(jpg|webp)$/, '.$1');
-  return `<div class="use use--img reveal">${src ? `<a class="use__img" href="${full}" data-lb="${lb}" aria-label="Увеличить фото: ${esc(t)}"><img src="${src}" alt="${esc(t)}" loading="lazy"><span class="use__zoom" aria-hidden="true">${I.search}</span></a>` : ''}<b>0${i + 1}</b><h3>${t}</h3><p>${d}</p>${more ? `<a class="use__more" href="${more}">Подробнее ${I.arrow}</a>` : ''}
-  <div class="use__foot"><span class="use__price${price ? '' : ' use__price--ask'}">${price || 'по макету'}</span><button class="btn btn--sm" type="button" data-order data-product="${esc(product)}" aria-label="Заказать: ${esc(t)}">Заказать</button></div></div>`;
+// ---------- услуги (гравировка, матрицы) ----------
+// Каждая услуга — своя страница по образцу страницы клейма; карточка в списке ведёт на неё, как карточка товара.
+const fullImg = src => src && src.replace(/-s\.(jpg|webp)$/, '.$1');
+const SVC = {
+  laser: {
+    base: '/gravirovka/', name: 'Лазерная гравировка', order: 'Гравировка', related: 'Другие услуги гравировки',
+    hint: LASER.note,
+    specs: [...LASER.facts.map(([v, k]) => [k[0].toUpperCase() + k.slice(1), v]), ['Оборудование', 'Оптоволоконный лазер']],
+    steps: [
+      ['Макет', 'Пришлите эскиз, логотип, фото или текст — подготовим и согласуем макет.'],
+      ['Расчёт', 'Назовём цену и срок с учётом материала, размера и тиража.'],
+      ['Гравировка', 'Наносим на оптоволоконном лазере — от 1 дня.'],
+      ['Получение', 'СДЭК, Почта России или самовывоз в Перми.'],
+    ],
+    items: LASER.services.map(([t, d, price, src, page]) => ({ t, d, price, src, own: !page.startsWith('/'), href: page.startsWith('/') ? page : `/gravirovka/${page}/` })),
+  },
+  matrix: {
+    base: '/matricy/', name: 'Матрицы и пуансоны', order: 'Матрица', related: 'Другие работы',
+    hint: 'Точную цену назовём по логотипу или образцу. Для юрлиц — по счёту с договором.',
+    specs: [['Цена', `${MATRIX.price}, зависит от размера и сложности рисунка`], ['Тиснение на', 'колпачках, крышках и пробках, коже, кожзаме, древесине'], ['Нанесение рисунка', 'Оптоволоконный лазер']],
+    steps: [
+      ['Макет', 'Пришлите логотип, эскиз или образец изделия и размеры посадочного места.'],
+      ['Согласование', 'Подготовим макет рисунка, назовём цену и срок.'],
+      ['Изготовление', 'Готовим заготовку и наносим рисунок на оптоволоконном лазере.'],
+      ['Получение', 'СДЭК, Почта России или самовывоз в Перми.'],
+    ],
+    items: MATRIX.works.map(([t, d, src, slug]) => ({ t, d, price: MATRIX.price, src, own: true, href: `/matricy/${slug}/` })),
+  },
+};
+Object.values(SVC).forEach(g => g.items.forEach((x, i) => Object.assign(x, { i, product: `${g.order}: ${x.t}` })));
+const stepsList = g => `<ol class="ctrl-list">${g.steps.map(([t, d]) => `<li><h3>${t}</h3><p>${d}</p></li>`).join('')}</ol>`;
+
+// Карточка услуги — как карточка товара: фото и название ведут на страницу услуги, кнопка — заявка
+function serviceCard(s) {
+  return `<article class="use use--img use--link reveal">${s.src ? `<a class="use__img" href="${s.href}" tabindex="-1" aria-hidden="true"><img src="${s.src}" alt="" loading="lazy"></a>` : ''}<b>0${s.i + 1}</b><h3><a href="${s.href}">${s.t}</a></h3><p>${s.d}</p>
+  <div class="use__foot"><span class="use__price${s.price ? '' : ' use__price--ask'}">${s.price || 'по макету'}</span><button class="btn btn--sm" type="button" data-order data-product="${esc(s.product)}" aria-label="Заказать: ${esc(s.t)}">Заказать</button></div></article>`;
+}
+
+function servicePage(g, s) {
+  const big = fullImg(s.src), others = g.items.filter(x => x !== s);
+  const minPrice = s.price && +s.price.replace(/\D/g, '');
+  const body = `
+<section class="sec sec--product">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><a href="${g.base}">${g.name}</a><span>/</span><span>${esc(s.t)}</span></nav>
+    <div class="prod">
+      <div class="gallery gallery--fit">
+        <button type="button" class="gallery__main zoom" data-lb-open="svc" aria-label="Увеличить фото"><img src="${big}" alt="${esc(s.t)}" fetchpriority="high"></button>
+        <div hidden><a href="${big}" data-lb="svc" aria-label="${esc(s.t)}"></a></div>
+      </div>
+      <div class="prod__info">
+        <span class="card__cat">${g.name}</span>
+        <h1>${esc(s.t)}</h1>
+        <div class="prod__buy">
+          <div class="price price--lg"><b>${s.price || 'Цена по макету'}</b></div>
+          <div class="prod__btns">
+            <button class="btn btn--lg" type="button" data-order data-product="${esc(s.product)}">Заказать ${I.arrow}</button>
+            <a class="btn btn--lg btn--ghost-dark" href="${C.max}" target="_blank" rel="noopener">${I.max}Спросить в MAX</a>
+          </div>
+          <p class="prod__hint">${g.hint}</p>
+        </div>
+        <dl class="specs">${g.specs.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+        <div class="prod__txt">
+          <h2>Описание</h2>
+          <p>${s.d}</p>
+          <h2>Как работаем</h2>
+          ${stepsList(g)}
+        </div>
+      </div>
+    </div>
+    <div class="related"><h2>${g.related}</h2><div class="uses uses--3">${others.map(serviceCard).join('')}</div></div>
+  </div>
+</section>`;
+  return layout({
+    title: `${s.t} — ${g.name.toLowerCase()} в Перми${s.price ? `, ${s.price}` : ''} | ${C.brand}`,
+    description: `${s.d} ${s.price ? `Цена ${s.price}` : 'Цена по макету'}, расчёт по эскизу или образцу. Изготовление в Перми, доставка по России.`,
+    canonical: s.href, body, ogImage: big, bodyClass: 'product',
+    jsonld: [crumbsLd([['Главная', '/'], [g.name, g.base], [s.t, s.href]]), {
+      '@context': 'https://schema.org', '@type': 'Service', name: s.t, description: s.d, serviceType: g.name, areaServed: 'RU', image: C.siteUrl + big,
+      ...(minPrice ? { offers: { '@type': 'Offer', priceCurrency: 'RUB', priceSpecification: { '@type': 'PriceSpecification', minPrice, priceCurrency: 'RUB' } } } : {}),
+      provider: { '@type': 'LocalBusiness', name: C.brand, telephone: C.phoneRaw, address: { '@type': 'PostalAddress', streetAddress: C.street, addressLocality: C.city, addressCountry: 'RU' } },
+    }],
+  });
 }
 
 // ---------- лазерная гравировка (дополнительная услуга) ----------
@@ -717,7 +795,7 @@ function laserPage() {
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Что гравируем</p><h2>Маркировка под вашу задачу</h2><p class="sec__sub">${LASER.note}</p></div>
-    <div class="uses uses--3">${LASER.services.map(([t, d, p, src, more], i) => serviceCard({ i, t, d, src, more, price: p, lb: 'laser', product: `Гравировка: ${t}` })).join('')}</div>
+    <div class="uses uses--3">${SVC.laser.items.map(serviceCard).join('')}</div>
   </div>
 </section>
 
@@ -726,12 +804,7 @@ function laserPage() {
     <div class="laser__txt reveal">
       <p class="eyebrow">Как работаем</p>
       <h2>От макета до готового изделия</h2>
-      <ol class="ctrl-list">
-        <li><h3>Макет</h3><p>Пришлите эскиз, логотип, фото или текст — подготовим и согласуем макет.</p></li>
-        <li><h3>Расчёт</h3><p>Назовём цену и срок с учётом материала, размера и тиража.</p></li>
-        <li><h3>Гравировка</h3><p>Наносим на оптоволоконном лазере — от 1 дня.</p></li>
-        <li><h3>Получение</h3><p>СДЭК, Почта России или самовывоз в Перми.</p></li>
-      </ol>
+      ${stepsList(SVC.laser)}
     </div>
     <div class="laser__img laser__img--tall reveal"><img src="${LASER.process}" alt="Таблички EAC с лазерной маркировкой" width="1050" height="1400" loading="lazy"></div>
   </div>
@@ -801,7 +874,7 @@ function matrixPage() {
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Что делаем</p><h2>Инструмент для тиснения под ваш логотип</h2><p class="sec__sub">${MATRIX.note}</p></div>
-    <div class="uses uses--3">${MATRIX.works.map(([t, d, src], i) => serviceCard({ i, t, d, src, price: MATRIX.price, lb: 'matrix', product: `Матрица: ${t}` })).join('')}</div>
+    <div class="uses uses--3">${SVC.matrix.items.map(serviceCard).join('')}</div>
   </div>
 </section>
 
@@ -810,12 +883,7 @@ function matrixPage() {
     <div class="laser__txt reveal">
       <p class="eyebrow">Как работаем</p>
       <h2>От логотипа до готового комплекта</h2>
-      <ol class="ctrl-list">
-        <li><h3>Макет</h3><p>Пришлите логотип, эскиз или образец изделия и размеры посадочного места.</p></li>
-        <li><h3>Согласование</h3><p>Подготовим макет рисунка, назовём цену и срок.</p></li>
-        <li><h3>Изготовление</h3><p>Готовим заготовку и наносим рисунок на оптоволоконном лазере.</p></li>
-        <li><h3>Получение</h3><p>СДЭК, Почта России или самовывоз в Перми.</p></li>
-      </ol>
+      ${stepsList(SVC.matrix)}
     </div>
     <div class="laser__img reveal"><a href="/img/matrix/series.jpg" data-lb="matrix-p" aria-label="Увеличить фото"><img src="/img/matrix/series-s.jpg" alt="Серия одинаковых матриц и колпачок с тиснением" width="480" height="640" loading="lazy"></a></div>
   </div>
@@ -927,11 +995,13 @@ STAMPS.forEach(p => write(`catalog/${p.slug}/index.html`, productPage(p)));
 write('pressy/index.html', pressPage());
 write('matricy/index.html', matrixPage());
 write('gravirovka/index.html', laserPage());
+const SVC_PAGES = Object.values(SVC).flatMap(g => g.items.filter(x => x.own).map(x => [g, x]));
+SVC_PAGES.forEach(([g, x]) => write(`${x.href.slice(1)}index.html`, servicePage(g, x)));
 for (const [slug, [t, h]] of Object.entries(LEGAL)) write(`${slug}/index.html`, legalPage(slug, t, h));
 write('404.html', layout({ title: `Страница не найдена | ${C.brand}`, description: 'Страница не найдена', canonical: '/404.html', bodyClass: 'legal',
   body: `<section class="sec"><div class="wrap legal-txt"><h1>Страница не найдена</h1><p>Возможно, клеймо переехало. Загляните в <a href="/catalog/">каталог</a> или на <a href="/">главную</a>.</p></div></section>` }));
 
-const urls = ['/', '/catalog/', '/pressy/', '/matricy/', '/gravirovka/', ...STAMPS.map(p => `/catalog/${p.slug}/`), '/politika/', '/soglasie/'];
+const urls = ['/', '/catalog/', '/pressy/', '/matricy/', '/gravirovka/', ...SVC_PAGES.map(([, x]) => x.href), ...STAMPS.map(p => `/catalog/${p.slug}/`), '/politika/', '/soglasie/'];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${C.siteUrl}${u}</loc><lastmod>${updated}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', BASE ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nDisallow: /send.php\nSitemap: ${C.siteUrl}/sitemap.xml\n`);
 if (BASE) { // на Pages PHP и .htaccess не работают

@@ -388,16 +388,20 @@ p { margin: 0 0 1em; }
 .page-hero__img .page-hero__img2 { position: absolute; left: -28px; bottom: 0; width: 52%; aspect-ratio: 16 / 10; object-fit: cover; border: 6px solid var(--dark); transform: rotate(-3deg); }
 .use.use--img { padding-top: 0; overflow: hidden; display: flex; flex-direction: column; }
 .use__img--bottom img { object-position: center 85%; }
-.use__img { display: block; margin: 0 -24px 20px; aspect-ratio: 16 / 10; overflow: hidden; background: #1a1c21; cursor: zoom-in; }
+.use__img { display: block; margin: 0 -24px 20px; aspect-ratio: 16 / 10; overflow: hidden; background: #1a1c21; }
 .use__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
 .use--img:hover .use__img img { transform: scale(1.05); }
 .use__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 16px; }
 .use__foot .use__price { margin: 0; }
 .use__foot .use__price--ask { font-family: var(--f-body); font-size: 14px; font-weight: 600; color: var(--ink-3); }
-.use__img { position: relative; }
-.use__zoom { position: absolute; right: 12px; bottom: 12px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(15, 17, 21, .6); color: #fff; backdrop-filter: blur(4px); opacity: .85; transition: opacity .2s, transform .2s; }
-.use__zoom svg { font-size: 16px; }
-.use--img:hover .use__zoom { opacity: 1; transform: scale(1.08); }
+/* карточка услуги — ссылка на страницу услуги, как карточка товара */
+.use--link { position: relative; }
+.use--link h3 a { color: inherit; text-decoration: none; transition: color .2s; }
+.use--link h3 a::after { content: ''; position: absolute; inset: 0; }
+.use--link:hover h3 a { color: var(--red); }
+.use--link .use__foot .btn { position: relative; z-index: 2; }
+.gallery--fit .gallery__main { aspect-ratio: auto; }
+.gallery--fit .gallery__main img { height: auto; max-height: 80vh; object-fit: contain; }
 .laser__img--duo { position: relative; padding: 0 0 56px 0; }
 .laser__img--duo img:first-child { aspect-ratio: 4 / 3; object-fit: cover; }
 .laser__img--duo img + img { position: absolute; right: -16px; bottom: 0; width: 46%; border: 6px solid #eceef2; transform: rotate(3deg); }
@@ -411,12 +415,9 @@ p { margin: 0 0 1em; }
 .laser--rev { grid-template-columns: .9fr 1.1fr; }
 .laser--rev .laser__img { order: -1; }
 .laser__img--light img + img { border-color: var(--bg); right: auto; left: -16px; transform: rotate(-3deg); }
-.use__more { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-weight: 600; font-size: 15px; color: var(--red); text-decoration: none; }
-.use__more:hover { text-decoration: underline; }
 .press-kpi--fit { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .press-kpi--fit li { padding-right: 16px; }
 .press-kpi--fit b { font-size: 21px; line-height: 1.25; margin-bottom: 4px; }
-.use__more svg { width: 16px; height: 16px; }
 @media (max-width: 1020px) {
   .page-hero__in { grid-template-columns: minmax(0, 1fr); }
   .page-hero__img { max-width: 560px; }
