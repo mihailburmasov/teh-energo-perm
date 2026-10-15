@@ -455,8 +455,9 @@ p { margin: 0 0 1em; }
 .cta-band__btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .sec--product { padding-top: calc(var(--hdr) + 32px); }
-.prod { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
-.gallery { position: sticky; top: calc(var(--hdr) + 20px); }
+/* ширина галереи — такая, чтобы фото 3:4 вместе с миниатюрами помещалось в экран по высоте */
+.prod { --gal: max(300px, calc((100vh - var(--hdr) - 210px) * 3 / 4)); display: grid; grid-template-columns: minmax(0, min(50%, var(--gal))) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.gallery { position: sticky; top: calc(var(--hdr) + 20px); width: 100%; max-width: var(--gal); margin-inline: auto; }
 .gallery__main { border-radius: var(--r-lg); overflow: hidden; background: #1a1c21; aspect-ratio: 3 / 4; }
 .gallery__main img { width: 100%; height: 100%; object-fit: cover; }
 .gallery__thumbs { display: flex; gap: 10px; margin-top: 12px; overflow-x: auto; padding-bottom: 4px; }
