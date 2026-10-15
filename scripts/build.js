@@ -1004,6 +1004,10 @@ write('404.html', layout({ title: `Страница не найдена | ${C.br
 const urls = ['/', '/catalog/', '/pressy/', '/matricy/', '/gravirovka/', ...SVC_PAGES.map(([, x]) => x.href), ...STAMPS.map(p => `/catalog/${p.slug}/`), '/politika/', '/soglasie/'];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${C.siteUrl}${u}</loc><lastmod>${updated}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', BASE ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nDisallow: /send.php\nSitemap: ${C.siteUrl}/sitemap.xml\n`);
+// Редиректы со старого сайта не должны вести на несуществующую страницу (иначе вес теряется на 404)
+const deadRedirects = [...fs.readFileSync(path.join(ROOT, 'public/.htaccess'), 'utf8').matchAll(/https:\/\/%\{HTTP_HOST\}(\/[^\s$%]*)\s/g)]
+  .map(m => m[1]).filter(u => !fs.existsSync(path.join(DIST, u, u.endsWith('/') ? 'index.html' : '')));
+if (deadRedirects.length) { console.error('В .htaccess редиректы на несуществующие страницы:', deadRedirects); process.exitCode = 1; }
 if (BASE) { // на Pages PHP и .htaccess не работают
   fs.rmSync(path.join(DIST, 'send.php'), { force: true });
   fs.rmSync(path.join(DIST, '.htaccess'), { force: true });

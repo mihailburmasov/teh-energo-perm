@@ -4,14 +4,57 @@ ErrorDocument 404 /404.html
 DirectoryIndex index.html
 
 RewriteEngine On
+
+# Главное зеркало — https://teh-enerdgy.ru (без www), как на старом сайте.
+# Каждое правило ведёт сразу на https, чтобы не было цепочек из нескольких редиректов.
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# /index.html и /catalog/index.html — дубли адресов с «/» на конце
+RewriteCond %{THE_REQUEST} \s/+((?:[^?\s]*/)?)index\.html[\s?]
+RewriteRule ^ https://%{HTTP_HOST}/%1 [R=301,L]
+
+# ---------- старый сайт на Tilda (до переноса в 2026 г.) ----------
+# Страницы. Список — из sitemap.xml и robots.txt старого сайта (15.10.2026).
+RewriteRule ^politic/?$ https://%{HTTP_HOST}/politika/ [R=301,L]
+RewriteRule ^sogl/?$ https://%{HTTP_HOST}/soglasie/ [R=301,L]
+RewriteRule ^catalog$ https://%{HTTP_HOST}/catalog/ [R=301,L]
+RewriteRule ^(thanks|eror404|header|footer)/?$ https://%{HTTP_HOST}/ [R=301,L]
+# технические адреса страниц Tilda: page71384251 — каталог, остальные (главная 71384247, служебные) — на главную
+RewriteRule ^page71384251\.html$ https://%{HTTP_HOST}/catalog/ [R=301,L]
+RewriteRule ^page[0-9]+\.html$ https://%{HTTP_HOST}/ [R=301,L]
+RewriteRule ^sitemap-store\.xml$ https://%{HTTP_HOST}/sitemap.xml [R=301,L]
+
+# Товары магазина Tilda (sitemap-store.xml): /catalog/tproduct/<id>-<название> и /tproduct/<id>-...
+# Сопоставление по id товара; товар без аналога ведёт на ближайший раздел.
+# Клейма -> страница того же клейма
+RewriteRule ^(.*/)?tproduct/588968425062 https://%{HTTP_HOST}/catalog/rst-8-mm-1985239792/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/358147681042 https://%{HTTP_HOST}/catalog/otk-8-mm-2021151840/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/647068614042 https://%{HTTP_HOST}/catalog/eac-4-mm-u8a-1850277466/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/358271497542 https://%{HTTP_HOST}/catalog/eac-4-6-mm-1833963871/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/333531708332 https://%{HTTP_HOST}/catalog/eac-5-mm-9hs-1798634539/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/246206093692 https://%{HTTP_HOST}/catalog/eac-v-kruge-12-mm-1779655705/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/579072598632 https://%{HTTP_HOST}/catalog/otk5-1732570493/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/144849651382 https://%{HTTP_HOST}/catalog/otk-6-9-v-kruge-1732628770/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/505625260252 https://%{HTTP_HOST}/catalog/t-v-treugolnike-3044088820/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/655470040152 https://%{HTTP_HOST}/catalog/serp-i-molot-8-mm-1770827744/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/799414585922 https://%{HTTP_HOST}/catalog/otk-dlya-pressa-14-18-1732593481/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/155001029652 https://%{HTTP_HOST}/catalog/znak-gost-4840579836/ [R=301,L,NC]
+# Клейма без точного аналога (АС, НАКС, ОТК 15, для заклёпок, «Клеймо») -> каталог
+RewriteRule ^(.*/)?tproduct/(601154329632|891429009282|351254765732|964923452462|762864027762) https://%{HTTP_HOST}/catalog/ [R=301,L,NC]
+# Гравировка: шильдики, жетон «ВС России», брелоки
+RewriteRule ^(.*/)?tproduct/104564005562 https://%{HTTP_HOST}/gravirovka/shildiki-i-tablichki/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/553822139002 https://%{HTTP_HOST}/gravirovka/detali-i-izdeliya/ [R=301,L,NC]
+RewriteRule ^(.*/)?tproduct/(674493736062|886202368162|360550243572|267380635912|611435790242) https://%{HTTP_HOST}/gravirovka/gravirovka-po-foto/ [R=301,L,NC]
+# Матрицы для маркировки
+RewriteRule ^(.*/)?tproduct/603858757272 https://%{HTTP_HOST}/matricy/ [R=301,L,NC]
+# Оборудование, которого больше нет в продаже (сопла, термопресс, лазеры xTool и JPT), и прочие товары -> главная
+RewriteRule ^(.*/)?tproduct/ https://%{HTTP_HOST}/ [R=301,L,NC]
+
 # HTTPS
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-# старые адреса сайта на Tilda
-RewriteRule ^politic/?$ /politika/ [R=301,L]
-RewriteRule ^sogl/?$ /soglasie/ [R=301,L]
-RewriteRule ^catalog$ /catalog/ [R=301,L]
 
 <IfModule mod_expires.c>
   ExpiresActive On
