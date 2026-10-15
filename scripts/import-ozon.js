@@ -113,6 +113,9 @@ const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) =>
   const sp = mergeSpecs(specs(title), PHOTO_SPECS[r.sku]);
   const d = title.match(/Ф\s?(\d+)\s?мм/);
   if (!sp.base && d) sp.base = d[1] + ' мм';
+  // со слов клиента 15.10.2026: ОТК в треугольнике и марки стали — на заготовке Ф20
+  const cat = o.category || categorize(title);
+  if (!sp.base && (cat === 'steel' || /в треугольнике/i.test(title)) && !/набор/i.test(title)) sp.base = '20 мм';
   let [price, oldPrice] = r.price.map(num);
   if (PRICE_BY_BASE[sp.base] && !/набор/i.test(title)) [price, oldPrice] = [PRICE_BY_BASE[sp.base], null];
   const imgDir = path.join(__dirname, '../public/img/products', String(r.sku));
@@ -123,7 +126,7 @@ const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) =>
     slug: slugify(o.short || shortName(title), r.sku),
     title,
     short: o.short || shortName(title),
-    category: o.category || categorize(title),
+    category: cat,
     price, oldPrice: oldPrice || null,
     rating: r.labels[0] && /^\d[.,]\d$/.test(r.labels[0]) ? r.labels[0].replace('.', ',') : null,
     reviews: r.labels[1] && /отзыв/.test(r.labels[1]) ? r.labels[1] : null,

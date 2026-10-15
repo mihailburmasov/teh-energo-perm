@@ -443,11 +443,13 @@
    "title": "Клеймо ОТК7 в треугольнике, по металлу",
    "short": "ОТК7 в треугольнике",
    "category": "otk",
-   "price": 3089,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -463,11 +465,13 @@
    "title": "Ударное клеймо (12Х18Н10Т) по металлу",
    "short": "12Х18Н10Т",
    "category": "steel",
-   "price": 2325,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -712,11 +716,13 @@
    "title": "Ударное клеймо (9ХС) по металлу",
    "short": "9ХС",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -732,11 +738,13 @@
    "title": "Ударное клеймо (AISI321) по металлу",
    "short": "AISI321",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -779,11 +787,13 @@
    "title": "Ударное клеймо (AISI316Тi) по металлу",
    "short": "AISI316Тi",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -799,11 +809,13 @@
    "title": "Ударное клеймо (08Х18Н10) по металлу",
    "short": "08Х18Н10",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -846,11 +858,13 @@
    "title": "Клеймо ОТК6 в треугольнике, по металлу",
    "short": "ОТК6 в треугольнике",
    "category": "otk",
-   "price": 3089,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -866,11 +880,13 @@
    "title": "Ударное клеймо (321L) по металлу",
    "short": "321L",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -886,11 +902,13 @@
    "title": "Клеймо ОТК8 в треугольнике, по металлу",
    "short": "ОТК8 в треугольнике",
    "category": "otk",
-   "price": 3089,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -931,11 +949,13 @@
    "title": "Ударное клеймо (AISI420) по металлу",
    "short": "AISI420",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -952,11 +972,13 @@
    "title": "Клеймо ОТК9 в треугольнике, по металлу",
    "short": "ОТК9 в треугольнике",
    "category": "otk",
-   "price": 3089,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -998,11 +1020,13 @@
    "title": "Ударное клеймо (10Х17Н13М2Т) по металлу",
    "short": "10Х17Н13М2Т",
    "category": "steel",
-   "price": 2310,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1122,11 +1146,13 @@
    "title": "Ударное клеймо (420L) по металлу",
    "short": "420L",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1142,11 +1168,13 @@
    "title": "Ударное клеймо (AISI316) по металлу",
    "short": "AISI316",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1162,11 +1190,13 @@
    "title": "Ударное клеймо (У8А) по металлу",
    "short": "У8А",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1229,11 +1259,13 @@
    "title": "Ударное клеймо (316L) по металлу",
    "short": "316L",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1319,11 +1351,13 @@
    "title": "Ударное клеймо (40Х) по металлу",
    "short": "40Х",
    "category": "steel",
-   "price": 2193,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1365,11 +1399,13 @@
    "title": "Ударное клеймо (30Х13) по металлу",
    "short": "30Х13",
    "category": "steel",
-   "price": 2193,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1386,11 +1422,13 @@
    "title": "Ударное клеймо (20Х13) по металлу",
    "short": "20Х13",
    "category": "steel",
-   "price": 2193,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,
@@ -1504,11 +1542,13 @@
    "title": "Ударное клеймо (09Г2С) по металлу",
    "short": "09Г2С",
    "category": "steel",
-   "price": 2311,
+   "price": 3500,
    "oldPrice": null,
    "rating": null,
    "reviews": null,
-   "specs": {},
+   "specs": {
+    "base": "20 мм"
+   },
    "images": [
     1,
     2,

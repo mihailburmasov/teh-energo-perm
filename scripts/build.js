@@ -401,7 +401,7 @@ function home() {
       <h2>Матрицы и пуансоны для тиснения</h2>
       <p>${MATRIX.lead}</p>
       <ul class="ticks">${MATRIX.works.slice(0, 4).map(([t]) => `<li>${I.check}<span><b>${t}</b></span></li>`).join('')}<li>${I.check}<span><b>Тиснение на коже, кожзаме и древесине</b></span></li></ul>
-      <p class="laser__note">Цена — ${MATRIX.price}, зависит от размера и сложности рисунка.</p>
+      <p class="laser__note">Цена — ${MATRIX.price}, зависит от размера и сложности рисунка. Срок — ${MATRIX.term}.</p>
       <div class="hero__cta">
         <a class="btn" href="/matricy/">Подробнее о матрицах ${I.arrow}</a>
         <button class="btn btn--ghost-dark" type="button" data-order data-product="Матрица и пуансон">Рассчитать по образцу</button>
@@ -697,19 +697,19 @@ const SVC = {
       ['Гравировка', 'Наносим на оптоволоконном лазере — от 1 дня.'],
       ['Получение', 'СДЭК, Почта России или самовывоз в Перми.'],
     ],
-    items: LASER.services.map(([t, d, price, src, page]) => ({ t, d, price, src, own: !page.startsWith('/'), href: page.startsWith('/') ? page : `/gravirovka/${page}/` })),
+    items: LASER.services.map(([t, d, price, src, page, extra = []]) => ({ t, d, price, src, extra, own: !page.startsWith('/'), href: page.startsWith('/') ? page : `/gravirovka/${page}/` })),
   },
   matrix: {
     base: '/matricy/', name: 'Матрицы и пуансоны', order: 'Матрица', related: 'Другие работы',
     hint: 'Точную цену назовём по логотипу или образцу. Для юрлиц — по счёту с договором.',
-    specs: [['Цена', `${MATRIX.price}, зависит от размера и сложности рисунка`], ['Тиснение на', 'колпачках, крышках и пробках, коже, кожзаме, древесине'], ['Нанесение рисунка', 'Оптоволоконный лазер']],
+    specs: [['Цена', `${MATRIX.price}, зависит от размера и сложности рисунка`], ['Срок изготовления', MATRIX.term], ['Тиснение на', 'колпачках, крышках и пробках, коже, кожзаме, древесине'], ['Нанесение рисунка', 'Оптоволоконный лазер']],
     steps: [
       ['Макет', 'Пришлите логотип, эскиз или образец изделия и размеры посадочного места.'],
       ['Согласование', 'Подготовим макет рисунка, назовём цену и срок.'],
-      ['Изготовление', 'Готовим заготовку и наносим рисунок на оптоволоконном лазере.'],
+      ['Изготовление', `Готовим заготовку и наносим рисунок на оптоволоконном лазере — ${MATRIX.term}.`],
       ['Получение', 'СДЭК, Почта России или самовывоз в Перми.'],
     ],
-    items: MATRIX.works.map(([t, d, src, slug]) => ({ t, d, price: MATRIX.price, src, own: true, href: `/matricy/${slug}/` })),
+    items: MATRIX.works.map(([t, d, src, slug]) => ({ t, d, price: MATRIX.price, src, extra: [], own: true, href: `/matricy/${slug}/` })),
   },
 };
 Object.values(SVC).forEach(g => g.items.forEach((x, i) => Object.assign(x, { i, product: `${g.order}: ${x.t}` })));
@@ -722,16 +722,18 @@ function serviceCard(s) {
 }
 
 function servicePage(g, s) {
-  const big = fullImg(s.src), others = g.items.filter(x => x !== s);
+  const big = fullImg(s.src), others = g.items.filter(x => x !== s), photos = [big, ...s.extra];
+  const thumb = u => u === big ? s.src : u.replace(/.(jpg|webp)$/, '-s.$1');
   const minPrice = s.price && +s.price.replace(/\D/g, '');
   const body = `
 <section class="sec sec--product">
   <div class="wrap">
     <nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><a href="${g.base}">${g.name}</a><span>/</span><span>${esc(s.t)}</span></nav>
     <div class="prod">
-      <div class="gallery gallery--fit">
+      <div class="gallery gallery--fit" data-gallery>
         <button type="button" class="gallery__main zoom" data-lb-open="svc" aria-label="Увеличить фото"><img src="${big}" alt="${esc(s.t)}" fetchpriority="high"></button>
-        <div hidden><a href="${big}" data-lb="svc" aria-label="${esc(s.t)}"></a></div>
+        <div hidden>${photos.map((u, i) => `<a href="${u}" data-lb="svc" aria-label="${esc(s.t)}, фото ${i + 1}"></a>`).join('')}</div>
+        ${photos.length > 1 ? `<div class="gallery__thumbs">${photos.map((u, i) => `<button type="button" class="${i ? '' : 'is-on'}" data-src="${u}" aria-label="Фото ${i + 1}"><img src="${thumb(u)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
       </div>
       <div class="prod__info">
         <span class="card__cat">${g.name}</span>
@@ -787,7 +789,7 @@ function laserPage() {
     </div>
     <div class="page-hero__img">
       <img src="${LASER.hero}" alt="Металлические бирки с лазерной маркировкой" width="1400" height="1050" fetchpriority="high">
-      <img class="page-hero__img2" src="${LASER.hero2}" alt="Латунное клише для тиснения" width="480" height="640" loading="lazy">
+      <img class="page-hero__img2" src="${LASER.hero2}" alt="Латунное клише для тиснения на столе лазера" width="480" height="640" loading="lazy">
     </div>
   </div>
 </section>
@@ -806,7 +808,7 @@ function laserPage() {
       <h2>От макета до готового изделия</h2>
       ${stepsList(SVC.laser)}
     </div>
-    <div class="laser__img laser__img--tall reveal"><img src="${LASER.process}" alt="Таблички EAC с лазерной маркировкой" width="1050" height="1400" loading="lazy"></div>
+    <figure class="laser__video reveal"><video src="${LASER.video.src}" poster="${LASER.video.poster}" controls playsinline preload="none" width="540" height="960" aria-label="${LASER.video.title}"></video><figcaption>${LASER.video.title}</figcaption></figure>
   </div>
 </section>
 
@@ -908,7 +910,7 @@ function matrixPage() {
 </section>`;
   return layout({
     title: `Изготовление матриц и пуансонов для тиснения в Перми | ${C.brand}`,
-    description: 'Матрицы и пуансоны для тиснения логотипов от 2 000 ₽: колпачки, крышки и пробки, кожа, кожзам, древесина. Рисунок на оптоволоконном лазере: надписи по кругу, гербы, орнаменты. Серийные комплекты, расчёт по логотипу или образцу.',
+    description: 'Матрицы и пуансоны для тиснения логотипов от 2 000 ₽, срок от 3 дней: колпачки, крышки и пробки, кожа, кожзам, древесина. Рисунок на оптоволоконном лазере: надписи по кругу, гербы, орнаменты. Серийные комплекты, расчёт по логотипу или образцу.',
     canonical: '/matricy/', body, ogImage: MATRIX.hero, bodyClass: 'laser-page',
     jsonld: [crumbsLd([['Главная', '/'], ['Матрицы и пуансоны', '/matricy/']]), {
       '@context': 'https://schema.org', '@type': 'Service', name: 'Изготовление матриц и пуансонов', serviceType: 'Изготовление матриц для тиснения', areaServed: 'RU', offers: { '@type': 'Offer', priceCurrency: 'RUB', priceSpecification: { '@type': 'PriceSpecification', minPrice: 2000, priceCurrency: 'RUB' } },
@@ -970,7 +972,7 @@ const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'Breadcr
 // ---------- запись ----------
 const BUILD_ID = Date.now().toString(36);
 function write(rel, html) {
-  if (BASE && rel.endsWith('.html')) html = html.replace(/((?:href|src|data-src|action)=")\/(?!\/)/g, `$1${BASE}/`);
+  if (BASE && rel.endsWith('.html')) html = html.replace(/((?:href|src|data-src|poster|action)=")\/(?!\/)/g, `$1${BASE}/`);
   const f = path.join(DIST, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); }
 function copyDir(src, dst) {
   if (!fs.existsSync(src)) return;

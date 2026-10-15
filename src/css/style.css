@@ -402,6 +402,7 @@ p { margin: 0 0 1em; }
 .use--link .use__foot .btn { position: relative; z-index: 2; }
 .gallery--fit .gallery__main { aspect-ratio: auto; }
 .gallery--fit .gallery__main img { height: auto; max-height: 80vh; object-fit: contain; }
+.gallery--fit .gallery__thumbs img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
 .laser__img--duo { position: relative; padding: 0 0 56px 0; }
 .laser__img--duo img:first-child { aspect-ratio: 4 / 3; object-fit: cover; }
 .laser__img--duo img + img { position: absolute; right: -16px; bottom: 0; width: 46%; border: 6px solid #eceef2; transform: rotate(3deg); }
@@ -409,7 +410,10 @@ p { margin: 0 0 1em; }
 .page-hero__img--stamps img:first-child { object-position: center 48%; }
 @media (max-width: 720px) { .page-hero__img--stamps { display: none; } }
 .page-hero__img--stamps .page-hero__img2 { width: 34%; aspect-ratio: 3 / 4; }
-.laser__img--tall img { aspect-ratio: 4 / 5; max-height: 560px; object-fit: cover; }
+/* видео работы лазера (вертикальное, грузится только по нажатию) */
+.laser__video { margin: 0; justify-self: center; width: min(100%, 340px); }
+.laser__video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: var(--r-lg); background: #0f1115; box-shadow: var(--shadow-lg); }
+.laser__video figcaption { margin-top: 10px; font-size: 14px; color: var(--ink-2); text-align: center; }
 
 /* ---------- матрицы и пуансоны ---------- */
 .laser--rev { grid-template-columns: .9fr 1.1fr; }
