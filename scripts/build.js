@@ -86,7 +86,7 @@ function layout({ title, description, canonical, body, jsonld = [], ogImage = '/
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=${ver('src/css/style.css')}">
+<link rel="stylesheet" href="/css/style.css?v=${ver('public/css/style.css')}">
 ${jsonld.map(j => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n')}
 </head>
 <body class="${bodyClass}" data-phone="${C.phone}" data-phone-raw="${C.phoneRaw}" data-max="${C.max}">
@@ -108,7 +108,7 @@ ${orderModal()}
   <p>Сайт использует файлы cookie, чтобы корректно работать и показывать встроенную карту. Подробнее — в <a href="/politika/">политике конфиденциальности</a>.</p>
   <button class="btn btn--sm" type="button" id="cookie-ok">Понятно</button>
 </div>
-<script src="/js/main.js?v=${ver('src/js/main.js')}" defer></script>
+<script src="/js/main.js?v=${ver('public/js/main.js')}" defer></script>
 </body>
 </html>`;
 }
@@ -988,9 +988,7 @@ function copyDir(src, dst) {
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 copyDir(path.join(ROOT, 'public'), DIST);
-copyDir(path.join(ROOT, 'src/css'), path.join(DIST, 'css'));
-copyDir(path.join(ROOT, 'src/js'), path.join(DIST, 'js'));
-fs.writeFileSync(path.join(DIST, 'send.php'), fs.readFileSync(path.join(ROOT, 'src/send.php'), 'utf8')
+fs.writeFileSync(path.join(DIST, 'send.php'), fs.readFileSync(path.join(ROOT, 'app/send.tpl.php'), 'utf8')
   .replaceAll('{{EMAIL}}', C.email).replaceAll('{{DOMAIN}}', new URL(C.siteUrl).hostname));
 
 write('index.html', home());
