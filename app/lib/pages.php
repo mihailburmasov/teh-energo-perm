@@ -14,6 +14,12 @@ function validate_data(): void
         if (!is_int($p['price']) || $p['price'] <= 0) throw new RuntimeException('У товара «' . $p['title'] . '» не указана цена');
         if (cat_name($p['category']) === '') throw new RuntimeException('У товара «' . $p['title'] . '» неизвестная категория');
     }
+    $pages = [];
+    foreach (S::$svc as $g) foreach ($g['items'] as $x) {
+        if ($x['own'] && isset($pages[$x['href']])) throw new RuntimeException('У двух услуг одинаковый адрес страницы: ' . $x['href']);
+        $pages[$x['href']] = true;
+        if ($x['src'] === '') throw new RuntimeException('У услуги «' . $x['t'] . '» нет фото');
+    }
 }
 
 // ---------- главная ----------

@@ -24,7 +24,6 @@ function render_site(): array
     $urls = array_merge(['/', '/catalog/', '/pressy/', '/matricy/', '/gravirovka/'], $svcPages, array_map(fn($p) => '/catalog/' . $p['slug'] . '/', S::$stamps), ['/politika/', '/soglasie/']);
     $f['sitemap.xml'] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" . implode("\n", array_map(fn($u) => '  <url><loc>' . $C['siteUrl'] . $u . '</loc><lastmod>' . S::$updated . '</lastmod></url>', $urls)) . "\n</urlset>\n";
     $f['robots.txt'] = "User-agent: *\nDisallow: /send.php\nSitemap: " . $C['siteUrl'] . "/sitemap.xml\n";
-    $f['send.php'] = str_replace(['{{EMAIL}}', '{{DOMAIN}}'], [$C['email'], parse_url($C['siteUrl'], PHP_URL_HOST)], (string)file_get_contents(APP_DIR . '/send.tpl.php'));
 
     // Редиректы со старого сайта не должны вести на несуществующую страницу (иначе вес теряется на 404)
     $ht = (string)@file_get_contents(rtrim(cfg('public_dir'), '/\\') . '/.htaccess');

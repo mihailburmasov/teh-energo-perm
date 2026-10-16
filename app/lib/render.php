@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 final class S
 {
+    public static string $base = '';    // сайт в корне домена; нужно для путей cookie админки
     public static array $c = [];        // company.json — факты о компании
     public static array $cats = [];     // категории каталога
     public static array $all = [];      // все товары из products.json
@@ -58,7 +59,8 @@ function cat_name(string $id): string { foreach (S::$cats as $c) if ($c['id'] ==
 function cat_count(string $id): int { return count(array_filter(S::$stamps, fn($p) => $p['category'] === $id)); }
 function ucfirst_u(string $s): string { return mb_strtoupper(mb_substr($s, 0, 1)) . mb_substr($s, 1); }
 function map_join(array $list, callable $fn, string $sep = ''): string { return implode($sep, array_map($fn, $list, array_keys($list))); }
-function jsenc($v): string { return json_encode($v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_LINE_TERMINATORS); }
+// JSON для <script>: «<» и «>» как < и >, чтобы текст из данных не мог закрыть тег
+function jsenc($v): string { return json_encode($v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_LINE_TERMINATORS | JSON_HEX_TAG); }
 // Версия css/js в ссылках — по содержимому файла
 function ver(string $rel): string
 {

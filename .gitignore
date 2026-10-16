@@ -6,3 +6,4 @@ scripts/.imglist.txt
 app/*.local.php
 app/config.server.php
 storage/
+tests/test.jpg

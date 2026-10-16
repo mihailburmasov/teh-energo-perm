@@ -2,6 +2,7 @@
 AddDefaultCharset UTF-8
 ErrorDocument 404 /404.html
 DirectoryIndex index.html
+Options -Indexes
 
 RewriteEngine On
 
@@ -56,6 +57,10 @@ RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
+# Админка: все адреса /admin/... обрабатывает один файл (ядро лежит вне корня сайта, в ../app)
+RewriteCond %{REQUEST_URI} !^/admin/index\.php$
+RewriteRule ^admin(/.*)?$ admin/index.php [L,QSA]
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/webp "access plus 30 days"
@@ -64,3 +69,11 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
   ExpiresByType text/css "access plus 7 days"
   ExpiresByType application/javascript "access plus 7 days"
 </IfModule>
+
+# Служебные файлы (.htaccess, .user.ini и т. п.) не отдаются
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+<FilesMatch "\.(md|json|jsonl|lock|log|sh|bat|py|mjs|bak|tmp|ini|env)$">
+  Require all denied
+</FilesMatch>
