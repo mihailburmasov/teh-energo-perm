@@ -86,7 +86,7 @@ function layout({ title, description, canonical, body, jsonld = [], ogImage = '/
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=${BUILD_ID}">
+<link rel="stylesheet" href="/css/style.css?v=${ver('src/css/style.css')}">
 ${jsonld.map(j => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n')}
 </head>
 <body class="${bodyClass}" data-phone="${C.phone}" data-phone-raw="${C.phoneRaw}" data-max="${C.max}">
@@ -108,7 +108,7 @@ ${orderModal()}
   <p>Сайт использует файлы cookie, чтобы корректно работать и показывать встроенную карту. Подробнее — в <a href="/politika/">политике конфиденциальности</a>.</p>
   <button class="btn btn--sm" type="button" id="cookie-ok">Понятно</button>
 </div>
-<script src="/js/main.js?v=${BUILD_ID}" defer></script>
+<script src="/js/main.js?v=${ver('src/js/main.js')}" defer></script>
 </body>
 </html>`;
 }
@@ -552,12 +552,13 @@ const CAT_TEXT = {
 
 function productPage(p) {
   const related = STAMPS.filter(x => x.category === p.category && x.sku !== p.sku).slice(0, 4);
+  const sp = p.specs || {};
   const specRows = [
     ['Категория', catName(p.category)],
-    p.specs.steel && ['Сталь', p.specs.steel],
-    p.specs.hrc && ['Твёрдость рабочей части', p.specs.hrc + ' HRC'],
-    p.specs.font && ['Высота символов', p.specs.font],
-    p.specs.base && ['Диаметр заготовки', p.specs.base],
+    sp.steel && ['Сталь', sp.steel],
+    sp.hrc && ['Твёрдость рабочей части', sp.hrc + ' HRC'],
+    sp.font && ['Высота символов', sp.font],
+    sp.base && ['Диаметр заготовки', sp.base],
     ['Способ нанесения', 'Ударный — молотком или под прессом'],
     ['Артикул', p.sku],
   ].filter(Boolean);
@@ -970,7 +971,8 @@ const faqLd = faq => ({ '@context': 'https://schema.org', '@type': 'FAQPage', ma
 const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: C.siteUrl + u })) });
 
 // ---------- запись ----------
-const BUILD_ID = Date.now().toString(36);
+// Версия css/js в ссылках — по содержимому файла: меняется только когда меняется сам файл
+const ver = rel => require('crypto').createHash('md5').update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
 function write(rel, html) {
   if (BASE && rel.endsWith('.html')) html = html.replace(/((?:href|src|data-src|poster|action)=")\/(?!\/)/g, `$1${BASE}/`);
   const f = path.join(DIST, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); }

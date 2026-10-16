@@ -1,1588 +1,1585 @@
 {
- "updated": "2026-10-14",
- "source": "ozon.ru/seller/teh-enerdgy-2374593",
- "categories": [
-  {
-   "id": "otk",
-   "name": "Клейма ОТК",
-   "short": "ОТК",
-   "desc": "Клейма отдела технического контроля: ОТК в треугольнике, в рамке, в круге, с номером контролёра."
-  },
-  {
-   "id": "quality",
-   "name": "Знаки соответствия и качества",
-   "short": "EAC, РСТ, знаки",
-   "desc": "EAC, РСТ, RU, «Сделано в России», знаки качества и ГОСТ."
-  },
-  {
-   "id": "steel",
-   "name": "Марки стали",
-   "short": "Марки стали",
-   "desc": "Клейма с обозначением марки металла: 12Х18Н10Т, AISI 316, 09Г2С и другие."
-  },
-  {
-   "id": "symbols",
-   "name": "Символы и литеры",
-   "short": "Символы",
-   "desc": "Наковальня, якорь РС, герб, заземление, буквы и фигурные знаки."
-  },
-  {
-   "id": "equipment",
-   "name": "Наборы клейм",
-   "short": "Наборы",
-   "desc": "Наборы клейм для участков, где работают несколько контролёров."
-  }
- ],
- "products": [
-  {
-   "sku": 2548412438,
-   "slug": "made-in-russia-ru-2548412438",
-   "title": "Клеймо MADE IN RUSSIA RU по металлу",
-   "short": "MADE IN RUSSIA RU",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ],
-   "ozon": "https://www.ozon.ru/product/2548412438/",
-   "order": 0
-  },
-  {
-   "sku": 1850277466,
-   "slug": "eac-4-mm-u8a-1850277466",
-   "title": "Клеймо EAC шрифт 4мм ширина 6мм сталь У8А 52-58 HRC на основании 10мм",
-   "short": "EAC 4 мм, У8А",
-   "category": "quality",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "У8А",
-    "hrc": "52-58",
-    "font": "4 мм",
-    "base": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/1850277466/",
-   "order": 1
-  },
-  {
-   "sku": 1833963871,
-   "slug": "eac-4-6-mm-1833963871",
-   "title": "Клеймо ЕАС высота символов 4мм длина 6мм твердость 50-55HRC",
-   "short": "EAC 4×6 мм",
-   "category": "quality",
-   "price": 3089,
-   "oldPrice": null,
-   "rating": "4,0",
-   "reviews": "2 отзыва",
-   "specs": {
-    "hrc": "50-55",
-    "font": "4 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/1833963871/",
-   "order": 2
-  },
-  {
-   "sku": 1798634539,
-   "slug": "eac-5-mm-9hs-1798634539",
-   "title": "Ударное клеймо ЕАС шрифт 5мм на основании 20мм сталь 9ХС твердость 50-55HRC",
-   "short": "EAC 5 мм, 9ХС",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "50-55",
-    "font": "5 мм",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/1798634539/",
-   "order": 3
-  },
-  {
-   "sku": 1732570493,
-   "slug": "otk5-1732570493",
-   "title": "Ударное клеймо ОТК5 по металлу",
-   "short": "ОТК5",
-   "category": "otk",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "8 отзывов",
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм",
-    "font": "3 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/1732570493/",
-   "order": 4
-  },
-  {
-   "sku": 3583109849,
-   "slug": "ru-3583109849",
-   "title": "Ударное клеймо «RU — Сделано в России» по металлу",
-   "short": "RU",
-   "category": "quality",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3583109849/",
-   "order": 5
-  },
-  {
-   "sku": 3308309654,
-   "slug": "rossiyskiy-znak-kachestva-3308309654",
-   "title": "Ударное клеймо по металлу, Российский знак качества",
-   "short": "Российский знак качества",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "2 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3308309654/",
-   "order": 6
-  },
-  {
-   "sku": 4838138933,
-   "slug": "nakovalnya-i-molot-4838138933",
-   "title": "Ударное клеймо «Наковальня и молот» по металлу",
-   "short": "Наковальня и молот",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/4838138933/",
-   "order": 7
-  },
-  {
-   "sku": 4840849029,
-   "slug": "serp-i-molot-v-zvezde-4840849029",
-   "title": "Клеймо «Серп и молот в звезде»",
-   "short": "Серп и молот в звезде",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "4 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "13 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/4840849029/",
-   "order": 8
-  },
-  {
-   "sku": 3044088820,
-   "slug": "t-v-treugolnike-3044088820",
-   "title": "Ударное клеймо (Т в треугольнике) по металлу",
-   "short": "Т в треугольнике",
-   "category": "symbols",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм",
-    "font": "7 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ],
-   "ozon": "https://www.ozon.ru/product/3044088820/",
-   "order": 9
-  },
-  {
-   "sku": 3987977621,
-   "slug": "p-v-pyatiugolnike-3987977621",
-   "title": "Ударное клеймо (П в пятиугольнике) по металлу",
-   "short": "П в пятиугольнике",
-   "category": "symbols",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм",
-    "font": "5 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3987977621/",
-   "order": 10
-  },
-  {
-   "sku": 3545537905,
-   "slug": "sdelano-v-rossii-3545537905",
-   "title": "Ударное клеймо (СДЕЛАНО В РОССИИ) по металлу",
-   "short": "СДЕЛАНО В РОССИИ",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3545537905/",
-   "order": 11
-  },
-  {
-   "sku": 5900439548,
-   "slug": "skreschennye-moloty-5900439548",
-   "title": "Клеймо «Скрещённые молоты»",
-   "short": "Скрещённые молоты",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3
-   ],
-   "ozon": "https://www.ozon.ru/product/5900439548/",
-   "order": 12
-  },
-  {
-   "sku": 5900452062,
-   "slug": "strela-v-zvezde-5900452062",
-   "title": "Клеймо «Стрела в звезде»",
-   "short": "Стрела в звезде",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/5900452062/",
-   "order": 13
-  },
-  {
-   "sku": 3069182365,
-   "slug": "otk-1-v-treugolnike-3069182365",
-   "title": "Ударное клеймо ОТК 1 в треугольнике, по металлу",
-   "short": "ОТК 1 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "13 отзывов",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3069182365/",
-   "order": 14
-  },
-  {
-   "sku": 1770827744,
-   "slug": "serp-i-molot-8-mm-1770827744",
-   "title": "Клеймо серп и молот 8мм. на заготовке 20мм. сталь 9ХС твердость 50-55 HRC",
-   "short": "Серп и молот 8 мм",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "4,7",
-   "reviews": "23 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "50-55",
-    "base": "20 мм",
-    "font": "8 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/1770827744/",
-   "order": 15
-  },
-  {
-   "sku": 4528309168,
-   "slug": "otk7-v-treugolnike-4528309168",
-   "title": "Клеймо ОТК7 в треугольнике, по металлу",
-   "short": "ОТК7 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/4528309168/",
-   "order": 16
-  },
-  {
-   "sku": 3859005916,
-   "slug": "12h18n10t-3859005916",
-   "title": "Ударное клеймо (12Х18Н10Т) по металлу",
-   "short": "12Х18Н10Т",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3859005916/",
-   "order": 17
-  },
-  {
-   "sku": 4840579836,
-   "slug": "znak-gost-4840579836",
-   "title": "Клеймо «Знак ГОСТ»",
-   "short": "Знак ГОСТ",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/4840579836/",
-   "order": 18
-  },
-  {
-   "sku": 3069294801,
-   "slug": "otk2-3069294801",
-   "title": "Ударное клеймо (ОТК2) по металлу",
-   "short": "ОТК2",
-   "category": "otk",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм",
-    "font": "3 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3069294801/",
-   "order": 19
-  },
-  {
-   "sku": 1732628770,
-   "slug": "otk-6-9-v-kruge-1732628770",
-   "title": "Ударное клеймо ОТК 6-9 в штрихпунктирном круге 10мм сталь У8А твердость 50-55 HRC",
-   "short": "ОТК 6-9 в круге",
-   "category": "otk",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "У8А",
-    "hrc": "50-55",
-    "base": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/1732628770/",
-   "order": 20
-  },
-  {
-   "sku": 1779655705,
-   "slug": "eac-v-kruge-12-mm-1779655705",
-   "title": "Ударное клеймо EAC в круге 12мм. сталь 9ХС твердость 50-55 HRC",
-   "short": "EAC в круге 12 мм",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "2 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "50-55",
-    "base": "20 мм",
-    "font": "13 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/1779655705/",
-   "order": 21
-  },
-  {
-   "sku": 2548573394,
-   "slug": "otk-6-10-mm-2548573394",
-   "title": "Ударное клеймо ОТК 6, по металлу Ф10мм",
-   "short": "ОТК 6, ⌀10 мм",
-   "category": "otk",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": "4,9",
-   "reviews": "4 отзыва",
-   "specs": {
-    "base": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/2548573394/",
-   "order": 22
-  },
-  {
-   "sku": 3527475090,
-   "slug": "otk5-v-treugolnike-3527475090",
-   "title": "Ударное клеймо (ОТК5 в треугольнике) по металлу",
-   "short": "ОТК5 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ],
-   "ozon": "https://www.ozon.ru/product/3527475090/",
-   "order": 23
-  },
-  {
-   "sku": 3358521255,
-   "slug": "znak-kachestva-sssr-3358521255",
-   "title": "Ударное клеймо (СССР знак качества) по металлу",
-   "short": "Знак качества СССР",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "4,0",
-   "reviews": "4 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3358521255/",
-   "order": 24
-  },
-  {
-   "sku": 1985239792,
-   "slug": "rst-8-mm-1985239792",
-   "title": "Ударное клеймо РСТ H-8мм L-10мм Твердость 50-55HRC",
-   "short": "РСТ 8 мм",
-   "category": "quality",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "50-55",
-    "base": "20 мм",
-    "font": "8 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ],
-   "ozon": "https://www.ozon.ru/product/1985239792/",
-   "order": 25
-  },
-  {
-   "sku": 3534859694,
-   "slug": "otk4-v-treugolnike-3534859694",
-   "title": "Ударное клеймо (ОТК4 в треугольнике) по металлу",
-   "short": "ОТК4 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3534859694/",
-   "order": 26
-  },
-  {
-   "sku": 3850566473,
-   "slug": "9hs-3850566473",
-   "title": "Ударное клеймо (9ХС) по металлу",
-   "short": "9ХС",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3850566473/",
-   "order": 27
-  },
-  {
-   "sku": 4097244170,
-   "slug": "aisi321-4097244170",
-   "title": "Ударное клеймо (AISI321) по металлу",
-   "short": "AISI321",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/4097244170/",
-   "order": 28
-  },
-  {
-   "sku": 3069272594,
-   "slug": "otk-3-5-mm-3069272594",
-   "title": "Ударное клеймо (ОТК) по металлу",
-   "short": "ОТК 3,5 мм",
-   "category": "otk",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "3 отзыва",
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм",
-    "font": "3,5 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3069272594/",
-   "order": 29
-  },
-  {
-   "sku": 4097531188,
-   "slug": "aisi316ti-4097531188",
-   "title": "Ударное клеймо (AISI316Тi) по металлу",
-   "short": "AISI316Тi",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/4097531188/",
-   "order": 30
-  },
-  {
-   "sku": 3850789386,
-   "slug": "08h18n10-3850789386",
-   "title": "Ударное клеймо (08Х18Н10) по металлу",
-   "short": "08Х18Н10",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3850789386/",
-   "order": 31
-  },
-  {
-   "sku": 3308290687,
-   "slug": "otk-v-treugolnike-3308290687",
-   "title": "Ударное клеймо по металлу, ОТК в треугольнике",
-   "short": "ОТК в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3308290687/",
-   "order": 32
-  },
-  {
-   "sku": 4528225154,
-   "slug": "otk6-v-treugolnike-4528225154",
-   "title": "Клеймо ОТК6 в треугольнике, по металлу",
-   "short": "ОТК6 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/4528225154/",
-   "order": 33
-  },
-  {
-   "sku": 3929365052,
-   "slug": "321l-3929365052",
-   "title": "Ударное клеймо (321L) по металлу",
-   "short": "321L",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3929365052/",
-   "order": 34
-  },
-  {
-   "sku": 4528367417,
-   "slug": "otk8-v-treugolnike-4528367417",
-   "title": "Клеймо ОТК8 в треугольнике, по металлу",
-   "short": "ОТК8 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/4528367417/",
-   "order": 35
-  },
-  {
-   "sku": 1732593481,
-   "slug": "otk-dlya-pressa-14-18-1732593481",
-   "title": "Клеймо ОТК для пресса, в рамке 14×18 мм, сталь 9ХС, 50-55 HRC",
-   "short": "ОТК для пресса 14×18",
-   "category": "otk",
-   "price": 3090,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "5 отзывов",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "50-55",
-    "base": "30 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/1732593481/",
-   "order": 36
-  },
-  {
-   "sku": 4097378407,
-   "slug": "aisi420-4097378407",
-   "title": "Ударное клеймо (AISI420) по металлу",
-   "short": "AISI420",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/4097378407/",
-   "order": 37
-  },
-  {
-   "sku": 4528432806,
-   "slug": "otk9-v-treugolnike-4528432806",
-   "title": "Клеймо ОТК9 в треугольнике, по металлу",
-   "short": "ОТК9 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/4528432806/",
-   "order": 38
-  },
-  {
-   "sku": 3651952709,
-   "slug": "yakor-rs-3651952709",
-   "title": "Ударное клеймо (Якорь РС) по металлу",
-   "short": "Якорь РС",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "3 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3651952709/",
-   "order": 39
-  },
-  {
-   "sku": 3850812714,
-   "slug": "10h17n13m2t-3850812714",
-   "title": "Ударное клеймо (10Х17Н13М2Т) по металлу",
-   "short": "10Х17Н13М2Т",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3850812714/",
-   "order": 40
-  },
-  {
-   "sku": 2021151840,
-   "slug": "otk-8-mm-2021151840",
-   "title": "Ударное клеймо (ОТК) по металлу",
-   "short": "ОТК 8 мм",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "4,0",
-   "reviews": "9 отзывов",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "8 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/2021151840/",
-   "order": 41
-  },
-  {
-   "sku": 3388572078,
-   "slug": "gerb-rf-3388572078",
-   "title": "Ударное клеймо «Герб РФ» (двуглавый орёл) по металлу",
-   "short": "Герб РФ",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "2 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "12 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3388572078/",
-   "order": 42
-  },
-  {
-   "sku": 2877903203,
-   "slug": "strela-2877903203",
-   "title": "Ударное клеймо (Стрела)",
-   "short": "Стрела",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "1 отзыв",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "3,5 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ],
-   "ozon": "https://www.ozon.ru/product/2877903203/",
-   "order": 43
-  },
-  {
-   "sku": 3601058204,
-   "slug": "bukva-zh-3601058204",
-   "title": "Ударное клеймо (Ж) по металлу",
-   "short": "Буква Ж",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "2 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3601058204/",
-   "order": 44
-  },
-  {
-   "sku": 3929521049,
-   "slug": "420l-3929521049",
-   "title": "Ударное клеймо (420L) по металлу",
-   "short": "420L",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3929521049/",
-   "order": 45
-  },
-  {
-   "sku": 4097148740,
-   "slug": "aisi316-4097148740",
-   "title": "Ударное клеймо (AISI316) по металлу",
-   "short": "AISI316",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/4097148740/",
-   "order": 46
-  },
-  {
-   "sku": 3826282219,
-   "slug": "u8a-3826282219",
-   "title": "Ударное клеймо (У8А) по металлу",
-   "short": "У8А",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ],
-   "ozon": "https://www.ozon.ru/product/3826282219/",
-   "order": 47
-  },
-  {
-   "sku": 3781589530,
-   "slug": "press-s-chpu-50-t-3781589530",
-   "title": "Пресс гидравлический с ЧПУ 50 тонн",
-   "short": "Пресс с ЧПУ 50 т",
-   "category": "equipment",
-   "price": 698236,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {},
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3781589530/",
-   "order": 48
-  },
-  {
-   "sku": 3528415556,
-   "slug": "10-v-ramke-3528415556",
-   "title": "Ударное клеймо (10 в рамке)",
-   "short": "10 в рамке",
-   "category": "symbols",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3528415556/",
-   "order": 49
-  },
-  {
-   "sku": 3929117220,
-   "slug": "316l-3929117220",
-   "title": "Ударное клеймо (316L) по металлу",
-   "short": "316L",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3929117220/",
-   "order": 50
-  },
-  {
-   "sku": 3308331834,
-   "slug": "otk-v-ramke-10-10-3308331834",
-   "title": "Ударное клеймо по металлу (ОТК в рамке 10х10мм.)",
-   "short": "ОТК в рамке 10×10",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3
-   ],
-   "ozon": "https://www.ozon.ru/product/3308331834/",
-   "order": 51
-  },
-  {
-   "sku": 3069287045,
-   "slug": "otk-1-3069287045",
-   "title": "Ударное клеймо (ОТК 1) по металлу",
-   "short": "ОТК 1",
-   "category": "otk",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм",
-    "font": "3 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3069287045/",
-   "order": 52
-  },
-  {
-   "sku": 2582159163,
-   "slug": "bukva-k-2582159163",
-   "title": "Ударное клеймо по металлу буква К",
-   "short": "Буква К",
-   "category": "symbols",
-   "price": 2809,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "5 отзывов",
-   "specs": {},
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/2582159163/",
-   "order": 53
-  },
-  {
-   "sku": 3862309639,
-   "slug": "40h-3862309639",
-   "title": "Ударное клеймо (40Х) по металлу",
-   "short": "40Х",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3862309639/",
-   "order": 54
-  },
-  {
-   "sku": 2748751111,
-   "slug": "znak-zazemleniya-2748751111",
-   "title": "Клеймо заземления, по металлу",
-   "short": "Знак заземления",
-   "category": "symbols",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": "5,0",
-   "reviews": "3 отзыва",
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "15 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/2748751111/",
-   "order": 55
-  },
-  {
-   "sku": 3862317810,
-   "slug": "30h13-3862317810",
-   "title": "Ударное клеймо (30Х13) по металлу",
-   "short": "30Х13",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3862317810/",
-   "order": 56
-  },
-  {
-   "sku": 3862304538,
-   "slug": "20h13-3862304538",
-   "title": "Ударное клеймо (20Х13) по металлу",
-   "short": "20Х13",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3862304538/",
-   "order": 57
-  },
-  {
-   "sku": 3545558182,
-   "slug": "otk4-3545558182",
-   "title": "Ударное клеймо (ОТК4) по металлу",
-   "short": "ОТК4",
-   "category": "otk",
-   "price": 2491,
-   "oldPrice": null,
-   "rating": "3,5",
-   "reviews": "2 отзыва",
-   "specs": {},
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3545558182/",
-   "order": 58
-  },
-  {
-   "sku": 3078324787,
-   "slug": "otk3-3078324787",
-   "title": "Ударное клеймо (ОТК3) по металлу",
-   "short": "ОТК3",
-   "category": "otk",
-   "price": 3100,
-   "oldPrice": null,
-   "rating": "4,1",
-   "reviews": "3 отзыва",
-   "specs": {
-    "steel": "У8А",
-    "hrc": "53-58",
-    "base": "10 мм",
-    "font": "3 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3078324787/",
-   "order": 59
-  },
-  {
-   "sku": 3069193681,
-   "slug": "otk2-v-treugolnike-3069193681",
-   "title": "Ударное клеймо (ОТК2 в треугольнике) по металлу",
-   "short": "ОТК2 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3069193681/",
-   "order": 60
-  },
-  {
-   "sku": 3539590846,
-   "slug": "nabor-otk-v-treugolnike-3539590846",
-   "title": "Набор клейм «ОТК в треугольнике» по металлу",
-   "short": "Набор «ОТК в треугольнике»",
-   "category": "equipment",
-   "price": 18196,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3539590846/",
-   "order": 61
-  },
-  {
-   "sku": 3850588467,
-   "slug": "09g2s-3850588467",
-   "title": "Ударное клеймо (09Г2С) по металлу",
-   "short": "09Г2С",
-   "category": "steel",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "base": "20 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "ozon": "https://www.ozon.ru/product/3850588467/",
-   "order": 62
-  },
-  {
-   "sku": 3315163401,
-   "slug": "otk3-v-treugolnike-3315163401",
-   "title": "Ударное клеймо по металлу (ОТК3 в треугольнике)",
-   "short": "ОТК3 в треугольнике",
-   "category": "otk",
-   "price": 3500,
-   "oldPrice": null,
-   "rating": null,
-   "reviews": null,
-   "specs": {
-    "steel": "9ХС",
-    "hrc": "53-58",
-    "base": "20 мм",
-    "font": "10 мм"
-   },
-   "images": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "ozon": "https://www.ozon.ru/product/3315163401/",
-   "order": 63
-  }
- ]
+  "updated": "2026-10-14",
+  "source": "ozon.ru/seller/teh-enerdgy-2374593",
+  "categories": [
+    {
+      "id": "otk",
+      "name": "Клейма ОТК",
+      "short": "ОТК",
+      "desc": "Клейма отдела технического контроля: ОТК в треугольнике, в рамке, в круге, с номером контролёра."
+    },
+    {
+      "id": "quality",
+      "name": "Знаки соответствия и качества",
+      "short": "EAC, РСТ, знаки",
+      "desc": "EAC, РСТ, RU, «Сделано в России», знаки качества и ГОСТ."
+    },
+    {
+      "id": "steel",
+      "name": "Марки стали",
+      "short": "Марки стали",
+      "desc": "Клейма с обозначением марки металла: 12Х18Н10Т, AISI 316, 09Г2С и другие."
+    },
+    {
+      "id": "symbols",
+      "name": "Символы и литеры",
+      "short": "Символы",
+      "desc": "Наковальня, якорь РС, герб, заземление, буквы и фигурные знаки."
+    },
+    {
+      "id": "equipment",
+      "name": "Наборы клейм",
+      "short": "Наборы",
+      "desc": "Наборы клейм для участков, где работают несколько контролёров."
+    }
+  ],
+  "products": [
+    {
+      "sku": 2548412438,
+      "slug": "made-in-russia-ru-2548412438",
+      "title": "Клеймо MADE IN RUSSIA RU по металлу",
+      "short": "MADE IN RUSSIA RU",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ozon": "https://www.ozon.ru/product/2548412438/",
+      "order": 0
+    },
+    {
+      "sku": 1850277466,
+      "slug": "eac-4-mm-u8a-1850277466",
+      "title": "Клеймо EAC шрифт 4мм ширина 6мм сталь У8А 52-58 HRC на основании 10мм",
+      "short": "EAC 4 мм, У8А",
+      "category": "quality",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "У8А",
+        "hrc": "52-58",
+        "font": "4 мм",
+        "base": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/1850277466/",
+      "order": 1
+    },
+    {
+      "sku": 1833963871,
+      "slug": "eac-4-6-mm-1833963871",
+      "title": "Клеймо ЕАС высота символов 4мм длина 6мм твердость 50-55HRC",
+      "short": "EAC 4×6 мм",
+      "category": "quality",
+      "price": 3089,
+      "oldPrice": null,
+      "rating": "4,0",
+      "reviews": "2 отзыва",
+      "specs": {
+        "hrc": "50-55",
+        "font": "4 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/1833963871/",
+      "order": 2
+    },
+    {
+      "sku": 1798634539,
+      "slug": "eac-5-mm-9hs-1798634539",
+      "title": "Ударное клеймо ЕАС шрифт 5мм на основании 20мм сталь 9ХС твердость 50-55HRC",
+      "short": "EAC 5 мм, 9ХС",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "50-55",
+        "font": "5 мм",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/1798634539/",
+      "order": 3
+    },
+    {
+      "sku": 1732570493,
+      "slug": "otk5-1732570493",
+      "title": "Ударное клеймо ОТК5 по металлу",
+      "short": "ОТК5",
+      "category": "otk",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "8 отзывов",
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм",
+        "font": "3 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/1732570493/",
+      "order": 4
+    },
+    {
+      "sku": 3583109849,
+      "slug": "ru-3583109849",
+      "title": "Ударное клеймо «RU — Сделано в России» по металлу",
+      "short": "RU",
+      "category": "quality",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3583109849/",
+      "order": 5
+    },
+    {
+      "sku": 3308309654,
+      "slug": "rossiyskiy-znak-kachestva-3308309654",
+      "title": "Ударное клеймо по металлу, Российский знак качества",
+      "short": "Российский знак качества",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "2 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3308309654/",
+      "order": 6
+    },
+    {
+      "sku": 4838138933,
+      "slug": "nakovalnya-i-molot-4838138933",
+      "title": "Ударное клеймо «Наковальня и молот» по металлу",
+      "short": "Наковальня и молот",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/4838138933/",
+      "order": 7
+    },
+    {
+      "sku": 4840849029,
+      "slug": "serp-i-molot-v-zvezde-4840849029",
+      "title": "Клеймо «Серп и молот в звезде»",
+      "short": "Серп и молот в звезде",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "4 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "13 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/4840849029/",
+      "order": 8
+    },
+    {
+      "sku": 3044088820,
+      "slug": "t-v-treugolnike-3044088820",
+      "title": "Ударное клеймо (Т в треугольнике) по металлу",
+      "short": "Т в треугольнике",
+      "category": "symbols",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм",
+        "font": "7 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ozon": "https://www.ozon.ru/product/3044088820/",
+      "order": 9
+    },
+    {
+      "sku": 3987977621,
+      "slug": "p-v-pyatiugolnike-3987977621",
+      "title": "Ударное клеймо (П в пятиугольнике) по металлу",
+      "short": "П в пятиугольнике",
+      "category": "symbols",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм",
+        "font": "5 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3987977621/",
+      "order": 10
+    },
+    {
+      "sku": 3545537905,
+      "slug": "sdelano-v-rossii-3545537905",
+      "title": "Ударное клеймо (СДЕЛАНО В РОССИИ) по металлу",
+      "short": "СДЕЛАНО В РОССИИ",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3545537905/",
+      "order": 11
+    },
+    {
+      "sku": 5900439548,
+      "slug": "skreschennye-moloty-5900439548",
+      "title": "Клеймо «Скрещённые молоты»",
+      "short": "Скрещённые молоты",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3
+      ],
+      "ozon": "https://www.ozon.ru/product/5900439548/",
+      "order": 12
+    },
+    {
+      "sku": 5900452062,
+      "slug": "strela-v-zvezde-5900452062",
+      "title": "Клеймо «Стрела в звезде»",
+      "short": "Стрела в звезде",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/5900452062/",
+      "order": 13
+    },
+    {
+      "sku": 3069182365,
+      "slug": "otk-1-v-treugolnike-3069182365",
+      "title": "Ударное клеймо ОТК 1 в треугольнике, по металлу",
+      "short": "ОТК 1 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "13 отзывов",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3069182365/",
+      "order": 14
+    },
+    {
+      "sku": 1770827744,
+      "slug": "serp-i-molot-8-mm-1770827744",
+      "title": "Клеймо серп и молот 8мм. на заготовке 20мм. сталь 9ХС твердость 50-55 HRC",
+      "short": "Серп и молот 8 мм",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "4,7",
+      "reviews": "23 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "50-55",
+        "base": "20 мм",
+        "font": "8 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/1770827744/",
+      "order": 15
+    },
+    {
+      "sku": 4528309168,
+      "slug": "otk7-v-treugolnike-4528309168",
+      "title": "Клеймо ОТК7 в треугольнике, по металлу",
+      "short": "ОТК7 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/4528309168/",
+      "order": 16
+    },
+    {
+      "sku": 3859005916,
+      "slug": "12h18n10t-3859005916",
+      "title": "Ударное клеймо (12Х18Н10Т) по металлу",
+      "short": "12Х18Н10Т",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3859005916/",
+      "order": 17
+    },
+    {
+      "sku": 4840579836,
+      "slug": "znak-gost-4840579836",
+      "title": "Клеймо «Знак ГОСТ»",
+      "short": "Знак ГОСТ",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/4840579836/",
+      "order": 18
+    },
+    {
+      "sku": 3069294801,
+      "slug": "otk2-3069294801",
+      "title": "Ударное клеймо (ОТК2) по металлу",
+      "short": "ОТК2",
+      "category": "otk",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм",
+        "font": "3 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3069294801/",
+      "order": 19
+    },
+    {
+      "sku": 1732628770,
+      "slug": "otk-6-9-v-kruge-1732628770",
+      "title": "Ударное клеймо ОТК 6-9 в штрихпунктирном круге 10мм сталь У8А твердость 50-55 HRC",
+      "short": "ОТК 6-9 в круге",
+      "category": "otk",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "У8А",
+        "hrc": "50-55",
+        "base": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/1732628770/",
+      "order": 20
+    },
+    {
+      "sku": 1779655705,
+      "slug": "eac-v-kruge-12-mm-1779655705",
+      "title": "Ударное клеймо EAC в круге 12мм. сталь 9ХС твердость 50-55 HRC",
+      "short": "EAC в круге 12 мм",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "2 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "50-55",
+        "base": "20 мм",
+        "font": "13 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/1779655705/",
+      "order": 21
+    },
+    {
+      "sku": 2548573394,
+      "slug": "otk-6-10-mm-2548573394",
+      "title": "Ударное клеймо ОТК 6, по металлу Ф10мм",
+      "short": "ОТК 6, ⌀10 мм",
+      "category": "otk",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": "4,9",
+      "reviews": "4 отзыва",
+      "specs": {
+        "base": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/2548573394/",
+      "order": 22
+    },
+    {
+      "sku": 3527475090,
+      "slug": "otk5-v-treugolnike-3527475090",
+      "title": "Ударное клеймо (ОТК5 в треугольнике) по металлу",
+      "short": "ОТК5 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ozon": "https://www.ozon.ru/product/3527475090/",
+      "order": 23
+    },
+    {
+      "sku": 3358521255,
+      "slug": "znak-kachestva-sssr-3358521255",
+      "title": "Ударное клеймо (СССР знак качества) по металлу",
+      "short": "Знак качества СССР",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "4,0",
+      "reviews": "4 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3358521255/",
+      "order": 24
+    },
+    {
+      "sku": 1985239792,
+      "slug": "rst-8-mm-1985239792",
+      "title": "Ударное клеймо РСТ H-8мм L-10мм Твердость 50-55HRC",
+      "short": "РСТ 8 мм",
+      "category": "quality",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "50-55",
+        "base": "20 мм",
+        "font": "8 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ozon": "https://www.ozon.ru/product/1985239792/",
+      "order": 25
+    },
+    {
+      "sku": 3534859694,
+      "slug": "otk4-v-treugolnike-3534859694",
+      "title": "Ударное клеймо (ОТК4 в треугольнике) по металлу",
+      "short": "ОТК4 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3534859694/",
+      "order": 26
+    },
+    {
+      "sku": 3850566473,
+      "slug": "9hs-3850566473",
+      "title": "Ударное клеймо (9ХС) по металлу",
+      "short": "9ХС",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3850566473/",
+      "order": 27
+    },
+    {
+      "sku": 4097244170,
+      "slug": "aisi321-4097244170",
+      "title": "Ударное клеймо (AISI321) по металлу",
+      "short": "AISI321",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/4097244170/",
+      "order": 28
+    },
+    {
+      "sku": 3069272594,
+      "slug": "otk-3-5-mm-3069272594",
+      "title": "Ударное клеймо (ОТК) по металлу",
+      "short": "ОТК 3,5 мм",
+      "category": "otk",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "3 отзыва",
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм",
+        "font": "3,5 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3069272594/",
+      "order": 29
+    },
+    {
+      "sku": 4097531188,
+      "slug": "aisi316ti-4097531188",
+      "title": "Ударное клеймо (AISI316Тi) по металлу",
+      "short": "AISI316Тi",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/4097531188/",
+      "order": 30
+    },
+    {
+      "sku": 3850789386,
+      "slug": "08h18n10-3850789386",
+      "title": "Ударное клеймо (08Х18Н10) по металлу",
+      "short": "08Х18Н10",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3850789386/",
+      "order": 31
+    },
+    {
+      "sku": 3308290687,
+      "slug": "otk-v-treugolnike-3308290687",
+      "title": "Ударное клеймо по металлу, ОТК в треугольнике",
+      "short": "ОТК в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3308290687/",
+      "order": 32
+    },
+    {
+      "sku": 4528225154,
+      "slug": "otk6-v-treugolnike-4528225154",
+      "title": "Клеймо ОТК6 в треугольнике, по металлу",
+      "short": "ОТК6 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/4528225154/",
+      "order": 33
+    },
+    {
+      "sku": 3929365052,
+      "slug": "321l-3929365052",
+      "title": "Ударное клеймо (321L) по металлу",
+      "short": "321L",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3929365052/",
+      "order": 34
+    },
+    {
+      "sku": 4528367417,
+      "slug": "otk8-v-treugolnike-4528367417",
+      "title": "Клеймо ОТК8 в треугольнике, по металлу",
+      "short": "ОТК8 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/4528367417/",
+      "order": 35
+    },
+    {
+      "sku": 1732593481,
+      "slug": "otk-dlya-pressa-14-18-1732593481",
+      "title": "Клеймо ОТК для пресса, в рамке 14×18 мм, сталь 9ХС, 50-55 HRC",
+      "short": "ОТК для пресса 14×18",
+      "category": "otk",
+      "price": 3090,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "5 отзывов",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "50-55",
+        "base": "30 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/1732593481/",
+      "order": 36
+    },
+    {
+      "sku": 4097378407,
+      "slug": "aisi420-4097378407",
+      "title": "Ударное клеймо (AISI420) по металлу",
+      "short": "AISI420",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/4097378407/",
+      "order": 37
+    },
+    {
+      "sku": 4528432806,
+      "slug": "otk9-v-treugolnike-4528432806",
+      "title": "Клеймо ОТК9 в треугольнике, по металлу",
+      "short": "ОТК9 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/4528432806/",
+      "order": 38
+    },
+    {
+      "sku": 3651952709,
+      "slug": "yakor-rs-3651952709",
+      "title": "Ударное клеймо (Якорь РС) по металлу",
+      "short": "Якорь РС",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "3 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3651952709/",
+      "order": 39
+    },
+    {
+      "sku": 3850812714,
+      "slug": "10h17n13m2t-3850812714",
+      "title": "Ударное клеймо (10Х17Н13М2Т) по металлу",
+      "short": "10Х17Н13М2Т",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3850812714/",
+      "order": 40
+    },
+    {
+      "sku": 2021151840,
+      "slug": "otk-8-mm-2021151840",
+      "title": "Ударное клеймо (ОТК) по металлу",
+      "short": "ОТК 8 мм",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "4,0",
+      "reviews": "9 отзывов",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "8 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/2021151840/",
+      "order": 41
+    },
+    {
+      "sku": 3388572078,
+      "slug": "gerb-rf-3388572078",
+      "title": "Ударное клеймо «Герб РФ» (двуглавый орёл) по металлу",
+      "short": "Герб РФ",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "2 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "12 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3388572078/",
+      "order": 42
+    },
+    {
+      "sku": 2877903203,
+      "slug": "strela-2877903203",
+      "title": "Ударное клеймо (Стрела)",
+      "short": "Стрела",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "1 отзыв",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "3,5 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ozon": "https://www.ozon.ru/product/2877903203/",
+      "order": 43
+    },
+    {
+      "sku": 3601058204,
+      "slug": "bukva-zh-3601058204",
+      "title": "Ударное клеймо (Ж) по металлу",
+      "short": "Буква Ж",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "2 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3601058204/",
+      "order": 44
+    },
+    {
+      "sku": 3929521049,
+      "slug": "420l-3929521049",
+      "title": "Ударное клеймо (420L) по металлу",
+      "short": "420L",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3929521049/",
+      "order": 45
+    },
+    {
+      "sku": 4097148740,
+      "slug": "aisi316-4097148740",
+      "title": "Ударное клеймо (AISI316) по металлу",
+      "short": "AISI316",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/4097148740/",
+      "order": 46
+    },
+    {
+      "sku": 3826282219,
+      "slug": "u8a-3826282219",
+      "title": "Ударное клеймо (У8А) по металлу",
+      "short": "У8А",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "ozon": "https://www.ozon.ru/product/3826282219/",
+      "order": 47
+    },
+    {
+      "sku": 3781589530,
+      "slug": "press-s-chpu-50-t-3781589530",
+      "title": "Пресс гидравлический с ЧПУ 50 тонн",
+      "short": "Пресс с ЧПУ 50 т",
+      "category": "equipment",
+      "price": 698236,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3781589530/",
+      "order": 48
+    },
+    {
+      "sku": 3528415556,
+      "slug": "10-v-ramke-3528415556",
+      "title": "Ударное клеймо (10 в рамке)",
+      "short": "10 в рамке",
+      "category": "symbols",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3528415556/",
+      "order": 49
+    },
+    {
+      "sku": 3929117220,
+      "slug": "316l-3929117220",
+      "title": "Ударное клеймо (316L) по металлу",
+      "short": "316L",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3929117220/",
+      "order": 50
+    },
+    {
+      "sku": 3308331834,
+      "slug": "otk-v-ramke-10-10-3308331834",
+      "title": "Ударное клеймо по металлу (ОТК в рамке 10х10мм.)",
+      "short": "ОТК в рамке 10×10",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3
+      ],
+      "ozon": "https://www.ozon.ru/product/3308331834/",
+      "order": 51
+    },
+    {
+      "sku": 3069287045,
+      "slug": "otk-1-3069287045",
+      "title": "Ударное клеймо (ОТК 1) по металлу",
+      "short": "ОТК 1",
+      "category": "otk",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм",
+        "font": "3 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3069287045/",
+      "order": 52
+    },
+    {
+      "sku": 2582159163,
+      "slug": "bukva-k-2582159163",
+      "title": "Ударное клеймо по металлу буква К",
+      "short": "Буква К",
+      "category": "symbols",
+      "price": 2809,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "5 отзывов",
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/2582159163/",
+      "order": 53
+    },
+    {
+      "sku": 3862309639,
+      "slug": "40h-3862309639",
+      "title": "Ударное клеймо (40Х) по металлу",
+      "short": "40Х",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3862309639/",
+      "order": 54
+    },
+    {
+      "sku": 2748751111,
+      "slug": "znak-zazemleniya-2748751111",
+      "title": "Клеймо заземления, по металлу",
+      "short": "Знак заземления",
+      "category": "symbols",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": "5,0",
+      "reviews": "3 отзыва",
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "15 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/2748751111/",
+      "order": 55
+    },
+    {
+      "sku": 3862317810,
+      "slug": "30h13-3862317810",
+      "title": "Ударное клеймо (30Х13) по металлу",
+      "short": "30Х13",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3862317810/",
+      "order": 56
+    },
+    {
+      "sku": 3862304538,
+      "slug": "20h13-3862304538",
+      "title": "Ударное клеймо (20Х13) по металлу",
+      "short": "20Х13",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3862304538/",
+      "order": 57
+    },
+    {
+      "sku": 3545558182,
+      "slug": "otk4-3545558182",
+      "title": "Ударное клеймо (ОТК4) по металлу",
+      "short": "ОТК4",
+      "category": "otk",
+      "price": 2491,
+      "oldPrice": null,
+      "rating": "3,5",
+      "reviews": "2 отзыва",
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3545558182/",
+      "order": 58
+    },
+    {
+      "sku": 3078324787,
+      "slug": "otk3-3078324787",
+      "title": "Ударное клеймо (ОТК3) по металлу",
+      "short": "ОТК3",
+      "category": "otk",
+      "price": 3100,
+      "oldPrice": null,
+      "rating": "4,1",
+      "reviews": "3 отзыва",
+      "specs": {
+        "steel": "У8А",
+        "hrc": "53-58",
+        "base": "10 мм",
+        "font": "3 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3078324787/",
+      "order": 59
+    },
+    {
+      "sku": 3069193681,
+      "slug": "otk2-v-treugolnike-3069193681",
+      "title": "Ударное клеймо (ОТК2 в треугольнике) по металлу",
+      "short": "ОТК2 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3069193681/",
+      "order": 60
+    },
+    {
+      "sku": 3539590846,
+      "slug": "nabor-otk-v-treugolnike-3539590846",
+      "title": "Набор клейм «ОТК в треугольнике» по металлу",
+      "short": "Набор «ОТК в треугольнике»",
+      "category": "equipment",
+      "price": 18196,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3539590846/",
+      "order": 61
+    },
+    {
+      "sku": 3850588467,
+      "slug": "09g2s-3850588467",
+      "title": "Ударное клеймо (09Г2С) по металлу",
+      "short": "09Г2С",
+      "category": "steel",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "base": "20 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ozon": "https://www.ozon.ru/product/3850588467/",
+      "order": 62
+    },
+    {
+      "sku": 3315163401,
+      "slug": "otk3-v-treugolnike-3315163401",
+      "title": "Ударное клеймо по металлу (ОТК3 в треугольнике)",
+      "short": "ОТК3 в треугольнике",
+      "category": "otk",
+      "price": 3500,
+      "oldPrice": null,
+      "rating": null,
+      "reviews": null,
+      "specs": {
+        "steel": "9ХС",
+        "hrc": "53-58",
+        "base": "20 мм",
+        "font": "10 мм"
+      },
+      "images": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ozon": "https://www.ozon.ru/product/3315163401/",
+      "order": 63
+    }
+  ]
 }

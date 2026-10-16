@@ -2,3 +2,7 @@ dist/
 .demo/
 node_modules/
 scripts/.imglist.txt
+# админка: секреты и состояние сервера — только локально и на сервере
+app/*.local.php
+app/config.server.php
+storage/

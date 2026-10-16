@@ -1,5 +1,8 @@
 // Превращает сырую выгрузку Ozon (data/ozon_raw.json) в каталог сайта (data/products.json).
-// Запускать после новой выгрузки: node scripts/import-ozon.js
+// Запускать после новой выгрузки: node scripts/import-ozon.js --force
+// ВНИМАНИЕ: с запуском админки (16.10.2026) data/products.json правит клиент на сервере.
+// Скрипт перезаписывает файл целиком — правки клиента пропадут. Только после deploy.php pull и осознанно.
+if (!process.argv.includes("--force")) { console.error("products.json ведётся в админке. Запуск только с --force (см. комментарий в начале файла)."); process.exit(1); }
 // Ручные правки названий/категорий — в OVERRIDES ниже, а не в products.json (он перезаписывается).
 const fs = require('fs'), path = require('path');
 const raw = require('../data/ozon_raw.json');
@@ -130,7 +133,7 @@ const products = raw.filter(r => !(OVERRIDES[r.sku] || {}).hidden).map((r, i) =>
     price, oldPrice: oldPrice || null,
     rating: r.labels[0] && /^\d[.,]\d$/.test(r.labels[0]) ? r.labels[0].replace('.', ',') : null,
     reviews: r.labels[1] && /отзыв/.test(r.labels[1]) ? r.labels[1] : null,
-    specs: sp,
+    ...(Object.keys(sp).length ? { specs: sp } : {}),
     images,
     ozon: `https://www.ozon.ru/product/${r.sku}/`,
     order: i,
