@@ -141,7 +141,7 @@ function page_home(): string
       <h2>Пресс ' . $PRESS['model'] . ': ' . $PRESS['force'] . ' с&nbsp;ЧПУ</h2>
       <p class="lead lead--dark">' . $PRESS['lead'] . '</p>
       <dl class="specs specs--mini">
-        ' . map_join(array_slice($PRESS['specs'], 0, 6), fn($s) => '<div><dt>' . $s[0] . '</dt><dd>' . $s[1] . '</dd></div>') . '
+        ' . map_join(array_slice($PRESS['specs'], 0, 6), fn($s) => '<div><dt>' . $s['name'] . '</dt><dd>' . $s['value'] . '</dd></div>') . '
       </dl>
       <div class="hero__cta">
         <a class="btn btn--lg" href="/pressy/">Подробнее о прессе ' . I['arrow'] . '</a>
@@ -182,7 +182,7 @@ function page_home(): string
       <p class="eyebrow">Дополнительная услуга</p>
       <h2>Лазерная гравировка и маркировка</h2>
       <p>' . $LASER['lead'] . '</p>
-      <ul class="ticks">' . map_join(array_slice($LASER['services'], 0, 5), fn($s) => '<li>' . I['check'] . '<span><b>' . $s[0] . '</b>' . ($s[2] ? ' — ' . $s[2] : '') . '</span></li>') . '</ul>
+      <ul class="ticks">' . map_join(array_slice($LASER['services'], 0, 5), fn($s) => '<li>' . I['check'] . '<span><b>' . $s['title'] . '</b>' . ($s['price'] ? ' — ' . $s['price'] : '') . '</span></li>') . '</ul>
       <p class="laser__note">' . $LASER['note'] . '</p>
       <div class="hero__cta">
         <a class="btn" href="/gravirovka/">Подробнее о гравировке ' . I['arrow'] . '</a>
@@ -202,7 +202,7 @@ function page_home(): string
       <p class="eyebrow">Изготовление на заказ</p>
       <h2>Матрицы и пуансоны для тиснения</h2>
       <p>' . $MATRIX['lead'] . '</p>
-      <ul class="ticks">' . map_join(array_slice($MATRIX['works'], 0, 4), fn($w) => '<li>' . I['check'] . '<span><b>' . $w[0] . '</b></span></li>') . '<li>' . I['check'] . '<span><b>Тиснение на коже, кожзаме и древесине</b></span></li></ul>
+      <ul class="ticks">' . map_join(array_slice($MATRIX['works'], 0, 4), fn($w) => '<li>' . I['check'] . '<span><b>' . $w['title'] . '</b></span></li>') . '<li>' . I['check'] . '<span><b>Тиснение на коже, кожзаме и древесине</b></span></li></ul>
       <p class="laser__note">Цена — ' . $MATRIX['price'] . ', зависит от размера и сложности рисунка. Срок — ' . $MATRIX['term'] . '.</p>
       <div class="hero__cta">
         <a class="btn" href="/matricy/">Подробнее о матрицах ' . I['arrow'] . '</a>
@@ -412,7 +412,7 @@ function page_press(): string
       <p class="eyebrow eyebrow--light">Изготовление прессов · ' . mb_strtolower($PRESS['availability']) . '</p>
       <h1>Электрогидравлический пресс ' . $PRESS['model'] . '</h1>
       <p class="lead">' . $PRESS['lead'] . '</p>
-      <ul class="press-kpi">' . map_join($PRESS['kpi'], fn($k) => '<li><b>' . $k[0] . '</b><span>' . $k[1] . '</span></li>') . '</ul>
+      <ul class="press-kpi">' . map_join($PRESS['kpi'], fn($k) => '<li><b>' . $k['value'] . '</b><span>' . $k['label'] . '</span></li>') . '</ul>
       <div class="hero__cta">
         <button class="btn btn--lg" type="button" data-order data-product="Пресс ' . $PRESS['model'] . '">Запросить КП ' . I['arrow'] . '</button>
         <a class="btn btn--lg btn--ghost" href="tel:' . $C['phoneRaw'] . '">' . I['phone'] . $C['phone'] . '</a>
@@ -425,7 +425,7 @@ function page_press(): string
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Применение</p><h2>Один пресс — пять задач</h2></div>
-    <div class="uses">' . map_join($PRESS['uses'], fn($u, $i) => '<div class="use reveal"><b>0' . ($i + 1) . '</b><h3>' . $u[0] . '</h3><p>' . $u[1] . '</p></div>') . '</div>
+    <div class="uses">' . map_join($PRESS['uses'], fn($u, $i) => '<div class="use reveal"><b>0' . ($i + 1) . '</b><h3>' . $u['title'] . '</h3><p>' . $u['text'] . '</p></div>') . '</div>
   </div>
 </section>
 
@@ -434,7 +434,7 @@ function page_press(): string
     <div class="reveal">
       <p class="eyebrow">Управление</p>
       <h2>Три способа управления и ЧПУ с записью испытаний</h2>
-      <ol class="ctrl-list">' . map_join($PRESS['control'], fn($c) => '<li><h3>' . $c[0] . '</h3><p>' . $c[1] . '</p></li>') . '</ol>
+      <ol class="ctrl-list">' . map_join($PRESS['control'], fn($c) => '<li><h3>' . $c['title'] . '</h3><p>' . $c['text'] . '</p></li>') . '</ol>
       <h3 class="mt">Режимы системы ЧПУ</h3>
       <ul class="ticks">' . map_join($PRESS['modes'], fn($m) => '<li>' . I['check'] . $m . '</li>') . '</ul>
       <h3 class="mt">Дополнительные опции</h3>
@@ -448,7 +448,7 @@ function page_press(): string
 <section class="sec">
   <div class="wrap">
     <div class="sec__head reveal"><p class="eyebrow">Характеристики</p><h2>Технические данные ' . $PRESS['model'] . '</h2></div>
-    <dl class="specs specs--big reveal">' . map_join($PRESS['specs'], fn($s) => '<div><dt>' . $s[0] . '</dt><dd>' . $s[1] . '</dd></div>') . '</dl>
+    <dl class="specs specs--big reveal">' . map_join($PRESS['specs'], fn($s) => '<div><dt>' . $s['name'] . '</dt><dd>' . $s['value'] . '</dd></div>') . '</dl>
     <div class="press-gal reveal">' . map_join($P['images'], fn($n) => '<a href="' . img($P, $n) . '" data-lb="press" aria-label="Увеличить фото ' . $n . '"><img src="' . img($P, $n, true) . '" alt="Пресс ' . $PRESS['model'] . ', фото ' . $n . '" width="300" height="400" loading="lazy"></a>') . '</div>
   </div>
 </section>
@@ -489,7 +489,7 @@ function services(): array
         'laser' => [
             'base' => '/gravirovka/', 'name' => 'Лазерная гравировка', 'order' => 'Гравировка', 'related' => 'Другие услуги гравировки',
             'hint' => $L['note'],
-            'specs' => array_merge(array_map(fn($f) => [ucfirst_u($f[1]), $f[0]], $L['facts']), [['Оборудование', 'Оптоволоконный лазер']]),
+            'specs' => array_merge(array_map(fn($f) => [ucfirst_u($f['label']), $f['value']], $L['facts']), [['Оборудование', 'Оптоволоконный лазер']]),
             'steps' => [
                 ['Макет', 'Пришлите эскиз, логотип, фото или текст — подготовим и согласуем макет.'],
                 ['Расчёт', 'Назовём цену и срок с учётом материала, размера и тиража.'],
@@ -497,9 +497,8 @@ function services(): array
                 ['Получение', 'СДЭК, Почта России или самовывоз в Перми.'],
             ],
             'items' => array_map(function ($s) {
-                [$t, $d, $price, $src, $page] = $s;
-                $own = !str_starts_with($page, '/');
-                return ['t' => $t, 'd' => $d, 'price' => $price, 'src' => $src, 'extra' => $s[5] ?? [], 'own' => $own, 'href' => $own ? '/gravirovka/' . $page . '/' : $page];
+                $own = !str_starts_with($s['page'], '/');
+                return ['t' => $s['title'], 'd' => $s['text'], 'price' => $s['price'], 'src' => $s['photo'], 'extra' => $s['photos'] ?? [], 'own' => $own, 'href' => $own ? '/gravirovka/' . $s['page'] . '/' : $s['page']];
             }, $L['services']),
         ],
         'matrix' => [
@@ -512,7 +511,7 @@ function services(): array
                 ['Изготовление', 'Готовим заготовку и наносим рисунок на оптоволоконном лазере — ' . $M['term'] . '.'],
                 ['Получение', 'СДЭК, Почта России или самовывоз в Перми.'],
             ],
-            'items' => array_map(fn($w) => ['t' => $w[0], 'd' => $w[1], 'price' => $M['price'], 'src' => $w[2], 'extra' => [], 'own' => true, 'href' => '/matricy/' . $w[3] . '/'], $M['works']),
+            'items' => array_map(fn($w) => ['t' => $w['title'], 'd' => $w['text'], 'price' => $M['price'], 'src' => $w['photo'], 'extra' => [], 'own' => true, 'href' => '/matricy/' . $w['slug'] . '/'], $M['works']),
         ],
     ];
     foreach ($g as $k => $grp) foreach ($grp['items'] as $i => $x) { $g[$k]['items'][$i]['i'] = $i; $g[$k]['items'][$i]['product'] = $grp['order'] . ': ' . $x['t']; }
@@ -594,7 +593,7 @@ function page_laser(): string
       <p class="eyebrow eyebrow--light">Дополнительная услуга</p>
       <h1>Лазерная гравировка и маркировка</h1>
       <p class="lead">' . $LASER['lead'] . '</p>
-      <ul class="press-kpi press-kpi--3">' . map_join($LASER['facts'], fn($f) => '<li><b>' . $f[0] . '</b><span>' . $f[1] . '</span></li>') . '</ul>
+      <ul class="press-kpi press-kpi--3">' . map_join($LASER['facts'], fn($f) => '<li><b>' . $f['value'] . '</b><span>' . $f['label'] . '</span></li>') . '</ul>
       <div class="hero__cta">
         <button class="btn btn--lg" type="button" data-order data-product="Лазерная гравировка">Рассчитать по макету ' . I['arrow'] . '</button>
         <a class="btn btn--lg btn--ghost" href="' . $C['max'] . '" target="_blank" rel="noopener">' . I['max'] . 'Отправить эскиз в MAX</a>
@@ -675,7 +674,7 @@ function page_matrix(): string
       <p class="eyebrow eyebrow--light">Изготовление на заказ</p>
       <h1>Изготовление матриц и пуансонов</h1>
       <p class="lead">' . $MATRIX['lead'] . '</p>
-      <ul class="press-kpi press-kpi--fit">' . map_join($MATRIX['facts'], fn($f) => '<li><b>' . $f[0] . '</b><span>' . $f[1] . '</span></li>') . '</ul>
+      <ul class="press-kpi press-kpi--fit">' . map_join($MATRIX['facts'], fn($f) => '<li><b>' . $f['value'] . '</b><span>' . $f['label'] . '</span></li>') . '</ul>
       <div class="hero__cta">
         <button class="btn btn--lg" type="button" data-order data-product="Матрица и пуансон">Рассчитать по образцу ' . I['arrow'] . '</button>
         <a class="btn btn--lg btn--ghost" href="' . $C['max'] . '" target="_blank" rel="noopener">' . I['max'] . 'Отправить логотип в MAX</a>
