@@ -4,6 +4,8 @@
 declare(strict_types=1);
 
 mb_internal_encoding('UTF-8');
+// Дробные числа в JSON — кратчайшей записью (58.04804, а не 58.0480400000000003…): на Beget по умолчанию другое значение
+ini_set('serialize_precision', '-1');
 date_default_timezone_set('Asia/Yekaterinburg'); // Пермь
 
 define('APP_DIR', __DIR__);

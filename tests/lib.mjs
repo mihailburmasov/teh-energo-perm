@@ -1,6 +1,7 @@
 // Общие помощники тестов админки: вход, запросы к API с cookie и CSRF.
 export const BASE = process.env.BASE || 'http://127.0.0.1:8090';
-const jar = {};
+// beget=begetok — cookie защиты Beget от ботов на адресах /admin (браузер ставит её сам скриптом)
+const jar = { beget: 'begetok' };
 function cookieHeader() { return Object.entries(jar).map(([k, v]) => `${k}=${v}`).join('; '); }
 function keep(res) {
   for (const c of res.headers.getSetCookie?.() || []) { const [kv] = c.split(';'); const [k, v] = kv.split('='); if (v === '' || /expires=Thu, 01 Jan 1970/i.test(c)) delete jar[k]; else jar[k] = v; }
