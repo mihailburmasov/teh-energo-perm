@@ -1,0 +1,6 @@
+# Данные и ядро — с переводом строки LF: иначе сверка с сервером видит все файлы изменёнными
+data/** text eol=lf
+app/** text eol=lf
+public/css/** text eol=lf
+public/js/** text eol=lf
+public/.htaccess text eol=lf

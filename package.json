@@ -4,8 +4,7 @@
   "description": "Сайт ООО «ТЕХ-ЭНЕРГО» (Пермь) — ударные клейма и гидравлические прессы",
   "scripts": {
     "import": "node scripts/import-ozon.js",
-    "build": "node scripts/build.js",
-    "serve": "php -S 127.0.0.1:8090 -t dist",
-    "deploy:demo": "node scripts/deploy-demo.js"
+    "build": "php app/bin/build.php",
+    "serve": "php -S 127.0.0.1:8090 app/dev-router.php"
   }
 }
