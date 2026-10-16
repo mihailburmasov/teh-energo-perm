@@ -41,7 +41,10 @@ Ozon закрыт антиботом, поэтому выгрузка делае
 
 Нужен хостинг с PHP 7.4+ и Apache (Beget, Timeweb, reg.ru…): залить **содержимое** `dist/` (включая `.htaccess`) в корень сайта.
 `.htaccess` включает HTTPS, страницу 404, склейку `www` → без `www` и 301-редиректы со всех адресов старого сайта на Tilda (см. ниже).
-Сейчас домен работает на Tilda — при переносе нужно переключить DNS домена на новый хостинг.
+Сайт выложен на **Beget** (16.10.2026): FTP `tehenem8.beget.tech`, папка `teh-enerdgy.ru/public_html`, логин и пароль — у пользователя (в репозиторий не класть).
+Обновление: `npm run build`, затем залить по FTP только изменённые файлы из `dist/`, например
+`curl --ftp-create-dirs -T dist/index.html ftp://tehenem8.beget.tech/teh-enerdgy.ru/public_html/index.html --user tehenem8:<пароль>`.
+Заглушку Beget `index.php` из папки сайта удалять: иначе она может перехватить главную.
 
 **Yandex Object Storage не подходит без доработки:** там не выполняется `send.php` и не читается `.htaccess` —
 форма заявки работать не будет, пока не сделать приём заявок через Cloud Function.
